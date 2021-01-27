@@ -32,9 +32,9 @@ export default function LandingPage(props) {
   return (
     <div>
       <Header
-        color="transparent"
+        color="rose"
         routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="Moony"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -47,7 +47,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>GIMME YOUR TENDIES</h1>
+              <h1 className={classes.title}>sdadsad</h1>
               <h4>
                 stonks
               </h4>
