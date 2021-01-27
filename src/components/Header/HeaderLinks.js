@@ -56,7 +56,7 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+          <CloudDownload className={classes.icons} /> asdsadasds
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
