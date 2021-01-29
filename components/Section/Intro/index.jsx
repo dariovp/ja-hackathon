@@ -1,10 +1,10 @@
 import styles from "./Intro.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { useState } from "react";
 
 
-export default function Intro(props) {
-    let duration = props.duration;
+export default function Intro({ duration }) {
 return (
     <div className={styles.intro}>
     <div className={styles.description}>
@@ -25,12 +25,17 @@ return (
     </div>
     <div className={styles.rocketSection}>
         <div className={styles.rocketLogo}>🚀</div>
-        <div className={styles.counter}>
-            <div className={styles.timebox}>{duration['_data']['days']}</div>
-            <div className={styles.timebox}>{duration['_data']['hours']}</div>
-            <div className={styles.timebox}>{duration['_data']['minutes']}</div>
-            <div className={styles.timebox}>{duration['_data']['seconds']}</div>
-        </div>
+        {
+                duration && <div className={styles.counter}>
+
+           
+                <div className={styles.timebox}>{duration['_data']['days']}</div>
+                <div className={styles.timebox}>{duration['_data']['hours']}</div>
+                <div className={styles.timebox}>{duration['_data']['minutes']}</div>
+                <div className={styles.timebox}>{duration['_data']['seconds']}</div>
+            </div>
+        }
+        
         <div>
             <div></div>
         </div>

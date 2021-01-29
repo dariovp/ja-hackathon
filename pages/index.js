@@ -34,10 +34,9 @@ export default function Home() {
 	useEffect(() => {
 		let timer;
 		if(duration) {
-			let clone = duration.clone();
 			timer = setInterval(() => {
 				console.log("Cambiando", duration)
-				setDuration(clone.subtract(1, 'seconds'));
+				setDuration(duration.clone().subtract(1, 'seconds'));
 		  }, 1000);
 		}
 		

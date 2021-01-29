@@ -1,8 +1,10 @@
-
+import { useRouter } from 'next/router'
 import { NavBarItem, Text, StyledNavBar } from './NavBar.styles';
 
 
 export default function NavBar () {
+
+	const router = useRouter();
 
 	return (
 		<StyledNavBar className="navbar navbar-expand-lg navbar-dark" >
@@ -24,7 +26,7 @@ export default function NavBar () {
 				`${duration['_data']['months']} m ${duration['_data']['days']} d ${duration['_data']['hours']} hrs ${duration['_data']['minutes']} min ${duration['_data']['seconds']} sec`
 			}
 		</Text> */}
-        <button className="btn btn-light me-2">Launch</button>
+        <button className="btn btn-light me-2" onClick={() => { router.push("/register") }}>Launch</button>
     </div>
   </div>	
 		</StyledNavBar>
