@@ -11,17 +11,15 @@ export default async (req, res) => {
 		const { name, email } = req.query
 		console.log(req.query);
 
-		res.send(req.query)
+		res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-		return;
+        // if(!name || !email){
+        //     return res.status(422).send({error: ['Missing one or more fields']})
+        // }
 
-        if(!name || !email){
-            return res.status(422).send({error: ['Missing one or more fields']})
-        }
+        // const user = await db.one('INSERT INTO User(name, email) VALUES($1, $2) RETURNING *', [name, email])
 
-        const user = await db.one('INSERT INTO User(name, email) VALUES($1, $2) RETURNING *', [name, email])
-
-        res.status(200).json(user)
+        // res.status(200).json(user)
 
     } catch (error) {
         // console.error(error);
