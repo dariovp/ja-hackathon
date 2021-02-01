@@ -1,6 +1,7 @@
 import styles from "./Intro.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { useState } from "react";
 
 
 export default function Intro(props) {
