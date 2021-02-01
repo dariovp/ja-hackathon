@@ -1,15 +1,47 @@
-const pgp = require('pg-promise')();
+import Sequelize from 'sequelize';
 
-// Get the values for these variables from configuration
-const user = "postgres"
-const password = 12345678
-const host = "localhost"
-const port = 5432
-const database = "moonlanding"
+const db = new Sequelize('moonlanding', 'postgres', '12345678', {
+  host: 'localhost',
+    dialect: 'postgres',
+    operatorsAliases: false,
+    define: {
+      timestamps: false
+    },    
+    logging:false,
+  
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+});
 
-const db = pgp(`postgres://${user}:${password}@${host}:${port}/${database}`)
 
-module.exports = async (req, res) => {
+
+const User = db.define('User', {
+	userId: {
+		type: Sequelize.INTEGER, // Tipo de dato.
+		autoIncrement: true,     // ID autoincremental.
+		primaryKey: true,        // Primary Key set.
+		allowNull: false         // No nulleable.
+	},
+	name: {
+		type: Sequelize.STRING,
+		defaultValue: '',
+		allowNull: false 
+	},
+	email: {
+		type: Sequelize.STRING,
+		defaultValue: '',
+		allowNull: false 
+	},
+});
+
+db.sync();
+
+
+export default async (req, res) => {
     try {
 		const { name, email } = req.query
 		console.log(req.query);
@@ -20,7 +52,11 @@ module.exports = async (req, res) => {
             return res.status(422).send({error: ['Missing one or more fields']})
         }
 
-        const user = await db.one('INSERT INTO user(name, email) VALUES($1, $2) RETURNING *', [name, email])
+		const user = await User.create(req.query)
+		.then(data => {
+			console.log(data)
+			return data;
+		})
 
         res.status(200).json(user)
 
