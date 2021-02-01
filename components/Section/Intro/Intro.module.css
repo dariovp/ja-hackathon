@@ -1,0 +1,78 @@
+.intro {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 90%;
+}
+
+.title {
+  margin-bottom:2rem;
+  line-height: 1.15;
+  font-size: 4rem;
+  justify-content: left;
+}
+
+.description {
+  width: 60%;
+  height: 25rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 6rem;
+}
+
+.rocketSection {
+  width: 30%;
+  height: 25rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.rocketLogo{
+  font-size: 15rem;
+}
+
+.moonyTitle {
+  color: #4e4ed4;
+}
+
+.socialMediaIcons{
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  font-size: 4rem;
+  margin-top: 5rem;
+}
+
+.icon{
+  margin-right: 3rem;
+  color:#4e4ed4
+}
+
+.subtitle{
+  font-size: 1.5rem
+}
+
+.timebox{
+  border: 0.2rem solid  #4e4ed4;
+  font-size: 1.75rem;
+  width:3.125rem;
+  height: 3.125rem;
+  margin-right:1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
