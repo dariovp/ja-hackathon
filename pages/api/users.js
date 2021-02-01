@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
             return res.status(422).send({error: ['Missing one or more fields']})
         }
 
-        const user = await db.one('INSERT INTO User(name, email) VALUES($1, $2) RETURNING *', [name, email])
+        const user = await db.one('INSERT INTO user(name, email) VALUES($1, $2) RETURNING *', [name, email])
 
         res.status(200).json(user)
 
