@@ -16,12 +16,7 @@ export default function Home() {
 
 	useEffect(() => {
 
-		const options = {
-			name: "hernan",
-			email: "hernan@hernan.henran"
-		}
-
-		axios.get("https://moony-chi.vercel.app/api/users?name=hernan&email=asdasdas", options)
+		axios.get("https://moony-chi.vercel.app/api/users?name=hernan&email=asdasdas")
 		.then(response => response.data)
 		.then(data => {
 			console.log(data)
