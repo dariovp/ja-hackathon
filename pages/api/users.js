@@ -1,9 +1,13 @@
-const pgp = require('pg-promise')({
-    noWarnings: true
-})
+const pgp = require('pg-promise')();
 
-const db = pgp(`postgres://postgres:12345678@localhost:5432/moonlanding`);
+// Get the values for these variables from configuration
+const user = "postgres"
+const password = 12345678
+const host = "localhost"
+const port = 5432
+const database = "moonlanding"
 
+const db = pgp(`postgres://${user}:${password}@${host}:${port}/${database}`)
 
 module.exports = async (req, res) => {
     try {
@@ -16,7 +20,7 @@ module.exports = async (req, res) => {
             return res.status(422).send({error: ['Missing one or more fields']})
         }
 
-        const user = await db.one('INSERT INTO User(name, email) VALUES($1, $2) RETURNING *', [name, email])
+        const user = await db.one('INSERT INTO user(name, email) VALUES($1, $2) RETURNING *', [name, email])
 
         res.status(200).json(user)
 
