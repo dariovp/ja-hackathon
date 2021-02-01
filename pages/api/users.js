@@ -1,12 +1,12 @@
-import pgp from 'pg-promise';
+// import pgp from 'pg-promise';
 
-pgp({
-    noWarnings: true
-})
+// pgp({
+//     noWarnings: true
+// })
 
-const db = pgp(`postgres://postgres:12345678@localhost:5432/user-test`);
+// const db = pgp(`postgres://postgres:12345678@localhost:5432/user-test`);
 
-export default async (req, res) => {
+module.exports = (req, res) => {
     try {
 		const { name, email } = req.query
 		console.log(req.query);
