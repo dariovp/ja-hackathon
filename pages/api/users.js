@@ -11,6 +11,10 @@ export default async (req, res) => {
 		const { name, email } = req.query
 		console.log(req.query);
 
+		res.send(req.query)
+
+		return;
+
         if(!name || !email){
             return res.status(422).send({error: ['Missing one or more fields']})
         }
