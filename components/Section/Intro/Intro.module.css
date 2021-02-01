@@ -26,6 +26,7 @@
   width: 30%;
   height: 25rem;
   display:flex;
+  margin-bottom: 4rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -42,7 +43,7 @@
 
 .socialMediaIcons{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: top;
   font-size: 4rem;
   margin-top: 5rem;
@@ -76,3 +77,8 @@
   margin-top: 1rem;
 }
 
+.dateInfo{
+font-size: 0.8rem;
+color: #4e4ed4;
+font-weight: bold;
+}
