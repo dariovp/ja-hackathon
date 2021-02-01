@@ -15,6 +15,18 @@ export default function Home() {
 
 
 	useEffect(() => {
+
+		const options = {
+			name: "hernan",
+			email: "hernan@hernan.henran"
+		}
+
+		axios.get("https://moony-chi.vercel.app/api/users", options)
+		.then(response => response.data)
+		.then(data => {
+			console.log(data)
+		})
+
 		axios.get("https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires")
 		.then(response => response.data)
 		.then(data => {
