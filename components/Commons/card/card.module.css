@@ -1,0 +1,10 @@
+.main{
+    width: 18rem;
+    height: 20rem;
+    border-radius: 10%;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
