@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 // Get the values for these variables from configuration
-const user = postgres
+const user = "postgres"
 const password = 12345678
 const host = "localhost"
 const port = 5432
