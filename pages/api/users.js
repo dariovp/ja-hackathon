@@ -1,10 +1,8 @@
 import pgp from 'pg-promise';
 
-pgp({
-    noWarnings: true
-})
 
 const db = pgp(`postgres://postgres:12345678@localhost:5432/moonlanding`);
+
 
 module.exports = async (req, res) => {
     try {
