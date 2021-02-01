@@ -1,6 +1,9 @@
-const pgp = require('pg-promise')({
+import pgp from 'pg-promise';
+
+pgp({
     noWarnings: true
 })
+
 const db = pgp(`postgres://postgres:12345678@localhost:5432/moonlanding`);
 
 module.exports = (req, res) => {
