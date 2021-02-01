@@ -21,7 +21,7 @@ export default function Home() {
 			email: "hernan@hernan.henran"
 		}
 
-		axios.get("https://moony-chi.vercel.app/api/users", options)
+		axios.get("https://moony-chi.vercel.app/api/users?name=hernan&email=asdasdas", options)
 		.then(response => response.data)
 		.then(data => {
 			console.log(data)
