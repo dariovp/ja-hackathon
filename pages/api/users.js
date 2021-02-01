@@ -1,9 +1,13 @@
-const pgp = require('pg-promise')({
-    noWarnings: true
-})
+const pgp = require('pg-promise')();
 
-const db = pgp(`postgres://postgres:12345678@localhost:5432/moonlanding`);
+// Get the values for these variables from configuration
+const user = postgres
+const password = 12345678
+const host = "localhost"
+const port = 5432
+const database = "moonlanding"
 
+const db = pgp(`postgres://${user}:${password}@${host}:${port}/${database}`)
 
 module.exports = async (req, res) => {
     try {
