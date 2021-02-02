@@ -1,4 +1,5 @@
-import Sequelize from 'sequelize';
+import Sequelize, { DATE } from 'sequelize';
+import sha256 from 'crypto-js/sha256';
 
 const db = new Sequelize('moonlanding', 'postgres', '12345678', {
   host: 'localhost',
@@ -21,38 +22,48 @@ const db = new Sequelize('moonlanding', 'postgres', '12345678', {
 
 const User = db.define('User', {
 	userId: {
-		type: Sequelize.INTEGER, // Tipo de dato.
-		autoIncrement: true,     // ID autoincremental.
-		primaryKey: true,        // Primary Key set.
-		allowNull: false         // No nulleable.
-	},
-	name: {
-		type: Sequelize.STRING,
-		defaultValue: '',
-		allowNull: false 
+		type: Sequelize.STRING, // Tipo de dato.
+		primaryKey: true, // Primary Key set.
+		allowNull: true, // No nulleable.
 	},
 	email: {
 		type: Sequelize.STRING,
-		defaultValue: '',
-		allowNull: false 
+		allowNull: false,
+		unique: true,
 	},
+	mentor: {
+	  type: Sequelize.BOOLEAN,
+	  defaultValue: false,
+	  allowNull: false,
+	},
+	points: {
+		type: Sequelize.INTEGER,
+		defaultValue: 0,
+		allowNull: false,
+	  }
 });
 
-db.sync();
+db.sync({ force: false });
 
 
 export default async (req, res) => {
     try {
-		const { name, email } = req.query
-		console.log(req.query);
+		const { rc, email, mentor } = req.query
+
+		let aux = await sha256(DATE.NOW);
+		console.log(aux);
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-        if(!name || !email){
+        if(!email || !mentor){
             return res.status(422).send({error: ['Missing one or more fields']})
         }
 
-		const user = await User.create(req.query)
+		const user = await User.create({
+			email: email,
+			id : aux,
+			mentor : mentor,
+		})
 		.then(data => {
 			console.log(data)
 			return data;
@@ -61,7 +72,7 @@ export default async (req, res) => {
         res.status(200).json(user)
 
     } catch (error) {
-        // console.error(error);
+         console.error(error);
         res.status(500).send({message: ["Error creating on the server"], error: error})
     }
 }
