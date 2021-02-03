@@ -45,6 +45,19 @@ export default async (req, res) => {
 					return data;
 				})
 
+				if (rc) {
+					const user = await db.User.findOne({
+						where: {
+							id: rc
+						}
+					});
+
+					user.points++;
+					await user.save({ fields: ['points'] });
+				}
+
+				
+
 				// Send email to validate account state
 
 				// ....
