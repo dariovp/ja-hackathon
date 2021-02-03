@@ -32,8 +32,9 @@ export default async (req, res) => {
 
 			// If a user was found...
 			if (maybeuser) {
-				// Tell the user that that mail was already registered
-				res.status(200).send({ message: 'Mail already registered'})
+				// send back user so "front" shows id & points
+
+				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
 				// Else, create user with that mail
 				const user = await db.User.create({
@@ -52,7 +53,7 @@ export default async (req, res) => {
 						}
 					});
 
-					user.points++;
+					user.points++; // calcs need to be done
 					await user.save({ fields: ['points'] });
 				}
 
@@ -62,8 +63,6 @@ export default async (req, res) => {
 
 				// ....
 
-
-				// Another Endpoint?
 
 				res.status(200).json(user)
 			}
