@@ -1,0 +1,47 @@
+.all{
+    display: flex;
+    background-color: #4e4ed4;
+    justify-content: center;
+    align-items: center; 
+}
+
+.twitterWidget {
+    
+}
+
+.contactText {
+    margin-right: 9rem;
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border: 0.3rem solid white;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+
+.mailIcon {
+    font-size: 4rem;
+}
+
+.mail {
+    color: white;
+}
+
+.socialMediaIcons{
+    display: flex;
+    font-size: 6rem;
+    margin-top: 5rem;
+}
+  
+.icon{
+    margin-right: 3rem;
+    color:white
+}
+
+.rocketLogo{
+    font-size: 18rem;
+    margin-right: 12rem;
+}
