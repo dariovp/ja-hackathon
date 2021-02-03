@@ -14,12 +14,14 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
+    "framer-motion": "^3.3.0-beta.22",
     "moment": "^2.29.1",
     "next": "10.0.5",
     "pg-promise": "^10.9.2",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "17.0.1",
+    "react-magic": "^0.2.3",
     "styled-components": "^5.2.1"
   }
 }

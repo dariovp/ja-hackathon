@@ -1,7 +1,8 @@
-import styles from "./Intro.module.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import styles from "./Intro.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faLinkedin, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import { useState } from "react";
+
 
 
 export default function Intro(props) {
@@ -21,6 +22,7 @@ export default function Intro(props) {
                         <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
                         <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
                         <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
+
                     </div>
                 </div>
             </div>
