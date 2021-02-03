@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import WhatIs from "../components/Section/WhatIs.jsx";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
@@ -67,7 +68,9 @@ export default function Home() {
 				<Section className={styles.whatIs}>
 					<WhatIs></WhatIs>
 				</Section>
-
+				<div className={styles.footerP}>
+					<Footer></Footer>
+				</div>
 			</main>
 		</div>
 	)
