@@ -50,11 +50,10 @@ Object.keys(sequelize).forEach(modelName => {
 });
 
 
-console.log("DB: ", sequelize)
+// console.log("DB: ", sequelize)
 
 
 // sequelize.sync({ force: true })
-console.log("All models were synchronized successfully!")
 
 sequelize.sequelize = sequelize;
 

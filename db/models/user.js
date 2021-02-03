@@ -8,9 +8,10 @@ const User = sequelize.define(
     'User',
     {
         id: {
-            type: Sequelize.STRING, // Tipo de dato.
+            type: DataTypes.UUID, // Tipo de dato.
             primaryKey: true, // Primary Key set.
             allowNull: false, // No nulleable.
+            defaultValue: Sequelize.UUIDV4
         },
         email: {
             type: Sequelize.STRING,
@@ -26,6 +27,11 @@ const User = sequelize.define(
             type: Sequelize.INTEGER,
             defaultValue: 0,
             allowNull: false,
+        },
+        verified: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
     }, 
     {
