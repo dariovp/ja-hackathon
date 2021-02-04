@@ -1,10 +1,8 @@
-import Sequelize, { DATE } from 'sequelize';
-import sha256 from 'crypto-js/sha256';
 import db from '../../db/models/index';
 
 
 export default async (req, res) => {
-    try {
+	try {
 
 		// console.log(db)
 
@@ -24,11 +22,11 @@ export default async (req, res) => {
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-        if(!email || !mentor){
-            return res.status(422).send({error: 'Missing one or more fields'})
-        }
+		if(!email || !mentor){
+			return res.status(422).send({error: 'Missing one or more fields'})
+		}
 
-		if(email.match(/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+		if(email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
 				where: {
@@ -47,21 +45,21 @@ export default async (req, res) => {
 					email: email,
 					mentor : mentor,
 				})
-				.then(data => {
-					console.log(data.dataValues)
+					.then(data => {
+						console.log(data.dataValues)
 
-					const mailData = {
-						from: 'Hernan <hernanhernan559@gmail.com>',
-						to: email,
-						subject: 'Hello',
-						html: '<form><input type="button" value="HOLA"></input></form>'
-					};
-					mg.messages().send(mailData, function (error, body) {
-						console.log(body);
-						console.log(error);
-					});
-					return data;
-				})
+						const mailData = {
+							from: 'Hernan <hernanhernan559@gmail.com>',
+							to: email,
+							subject: 'Hello',
+							html: '<form><input type="button" value="HOLA"></input></form>'
+						};
+						mg.messages().send(mailData, function (error, body) {
+							console.log(body);
+							console.log(error);
+						});
+						return data;
+					})
 
 				if (rc) {
 					const user = await db.User.findOne({
@@ -93,8 +91,8 @@ export default async (req, res) => {
 		}
 
 		
-    } catch (error) {
+	} catch (error) {
 		console.error(error);
-        res.status(500).send({message: "Error creating on the server", error: error})
-    }
+		res.status(500).send({message: "Error creating on the server", error: error})
+	}
 }
