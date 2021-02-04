@@ -14,6 +14,21 @@ export default async (req, res) => {
 		console.log("All models were synchronized successfully!")
 		
 
+
+		const mailgun = await require("mailgun-js");
+		const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
+		const api_key = "c370be0328d373b278adf8748c4164a3-77751bfc-11ddc406";
+		const mg = mailgun({apiKey: api_key, domain: DOMAIN});
+		const data = {
+			from: 'Hernan <hernanhernan559@gmail.com>',
+			to: 'email',
+			subject: 'Hello',
+			html: '<form><input type="button" value="HOLA"></input></form>'
+		};
+		mg.messages().send(data, function (error, body) {
+			console.log(body);
+			console.log(error);
+		});
 		
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
