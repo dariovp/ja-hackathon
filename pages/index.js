@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import WhatIs from "../components/Section/WhatIs.jsx";
 
+
 export default function Home() {
 	const [duration, setDuration] = useState(undefined);
 

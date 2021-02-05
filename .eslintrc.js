@@ -1,12 +1,10 @@
 module.exports = {
-	parser: "babel-eslint",
 	env: {
-		es6: true,
 		node: true,
-		browser: true,
+		browser: false,
 	},
 	parserOptions: {
-		ecmaVersion: 6,
+		ecmaVersion: 11,
 		sourceType: "module",
 		ecmaFeatures: {
 			jsx: true,
@@ -25,5 +23,5 @@ module.exports = {
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-indent": ["warn", "tab"],
 		"indent": ["warn", "tab"]
-	},
+	}
 };
