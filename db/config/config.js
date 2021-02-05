@@ -1,10 +1,10 @@
 'use strict';
 module.exports = {
   development: {
-    username: "postgres",
+    username: "hylsbtewohsbvf",
     password: "12345678",
-    database: "moonlanding",
-    host: "127.0.0.1",
+    database: "d3bvigi4121ji3",
+    host: "ec2-54-162-119-125.compute-1.amazonaws.com",
     dialect: "postgres"
   },
   test: {
