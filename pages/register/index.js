@@ -1,10 +1,13 @@
 import { useState } from "react"; 
+import { useRouter} from "next/router"
 import { Button, Collapse } from "react-bootstrap";
 
 export default function Register () {
 
 	const [email, setEmail] = useState('');
 	const [open, setOpen] = useState(false);
+	const router = useRouter();
+	const { rc } = router.query;
 
 	return (
 		<div className="vw-100 vh-100 d-flex justify-content-center align-items-center">
@@ -18,7 +21,7 @@ export default function Register () {
 					}} />
 					<label>Email address</label>
 				</div>
-
+				{console.log("asd sa", router) }
 				<div className="mb-3">
 					<label htmlFor="dropdown" className="form-label p-2">¿Deseas enseñar o aprender?</label>
 					<Button
