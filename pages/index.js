@@ -7,6 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import WhatIs from "../components/Section/WhatIs.jsx";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
@@ -43,13 +44,22 @@ export default function Home() {
 		let timer;
 		if (duration) {
 			timer = setInterval(() => {
+<<<<<<< HEAD
+				console.log("Cambiando", duration)
+				setDuration(duration.clone().subtract(1, 'seconds'));
+=======
 				console.log("Cambiando", duration);
 				setDuration(duration.clone().subtract(1, "seconds"));
+>>>>>>> test
 			}, 1000);
 		}
 
 		return () => clearInterval(timer);
+<<<<<<< HEAD
+	})
+=======
 	});
+>>>>>>> test
 
 	return (
 		<div className={styles.container}>
@@ -60,15 +70,8 @@ export default function Home() {
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossOrigin="anonymous"></script> */}
 			</Head>
 			<NavBar />
+<<<<<<< HEAD
+=======
 
-			<main className={styles.main}>
-				<Section className="container-fluid">
-					<Intro duration={duration}></Intro>
-				</Section>
-				<Section>
-					<WhatIs></WhatIs>
-				</Section>
-			</main>
-		</div>
-	);
+>>>>>>> test
 }

@@ -1,9 +1,9 @@
 .intro {
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
 }
 
 .title {
@@ -23,7 +23,7 @@
 }
 
 .rocketSection {
-  width: 30%;
+  width: 40%;
   height: 25rem;
   display:flex;
   margin-bottom: 4rem;
@@ -82,3 +82,4 @@ font-size: 0.8rem;
 color: #4e4ed4;
 font-weight: bold;
 }
+
