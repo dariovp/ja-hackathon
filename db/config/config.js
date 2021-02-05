@@ -5,7 +5,8 @@ module.exports = {
     password: "12345678",
     database: "d3bvigi4121ji3",
     host: "ec2-54-162-119-125.compute-1.amazonaws.com",
-    dialect: "postgres"
+    dialect: "postgres",
+    port :  5432,
   },
   test: {
     username: process.env.DB_USER,
