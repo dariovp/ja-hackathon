@@ -23,13 +23,13 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
-
+/*
 let sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   dialectOptions: {
     ssl: true
   }
-});
+});*/
 const sequelize = new Sequelize({
   database: "d3bvigi4121ji3",
   username: "hylsbtewohsbvf",
