@@ -30,7 +30,7 @@ export default function Footer() {
 
             {/*Widget de Twitter junto con el texto de arriba*/}
             <div className={styles.twitterWidget}>
-                <a className="twitter-timeline" data-width="400" data-height="400" data-theme="ligth" href="https://twitter.com/themoonyapp?ref_src=twsrc%5Etfw">Tweets by themoonyapp</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a className="twitter-timeline" data-width="400" data-height="400" data-theme="ligth" href="https://twitter.com/themoonyapp?ref_src=twsrc%5Etfw">Tweets by themoonyapp</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
             </div>
         </div>
     );
