@@ -24,9 +24,14 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   client.end();
 });
 
+let sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: true
+  }
+});
 
-
-
+/*
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -37,6 +42,6 @@ if (config.use_env_variable) {
     config.password,
     config,
   );
-}
+}*/
 
 module.exports = sequelize;
