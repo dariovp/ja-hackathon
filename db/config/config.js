@@ -6,6 +6,9 @@ module.exports = {
     database: "d3bvigi4121ji3",
     host: "ec2-54-162-119-125.compute-1.amazonaws.com",
     dialect: "postgres",
+    dialectOptions: {
+      ssl: true,
+    },
     port :  5432,
   },
   test: {
@@ -22,6 +25,9 @@ module.exports = {
     database: "d3bvigi4121ji3",
     host: "ec2-54-162-119-125.compute-1.amazonaws.com",
     dialect: "postgres",
+    dialectOptions: {
+      ssl: true,
+    },
     port :  5432,
   },
 };
