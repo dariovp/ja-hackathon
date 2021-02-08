@@ -21,23 +21,23 @@ export default function Home() {
 		// })
 
 		axios
-			.get(
-				"https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
-			)
-			.then((response) => response.data)
-			.then((data) => {
-				console.log(data);
-				const now = moment.utc(data["datetime"], moment.ISO_8601);
-				const lanzamiento = moment.utc(
-					"2021-03-01T00:00:00.151826-03:00",
-					moment.ISO_8601
-				);
+		.get(
+			"https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
+		)
+		.then((response) => response.data)
+		.then((data) => {
+			console.log(data);
+			const now = moment.utc(data["datetime"], moment.ISO_8601);
+			const lanzamiento = moment.utc(
+				"2021-03-01T00:00:00.151826-03:00",
+				moment.ISO_8601
+			);
 
-				let timeDiff = lanzamiento - now;
+			let timeDiff = lanzamiento - now;
 
-				let dur = moment.duration(timeDiff);
-				setDuration(dur);
-			});
+			let dur = moment.duration(timeDiff);
+			setDuration(dur);
+		});
 	}, []);
 
 	useEffect(() => {
@@ -68,7 +68,6 @@ export default function Home() {
 				<Section>
 					<WhatIs></WhatIs>
 				</Section>
-
 				<div className={styles.footerP}>
 					<Footer></Footer>
 				</div>
