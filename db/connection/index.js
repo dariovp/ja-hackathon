@@ -30,6 +30,17 @@ let sequelize = new Sequelize(process.env.DATABASE_URL, {
     ssl: true
   }
 });
+const sequelize = new Sequelize({
+  database: "d3bvigi4121ji3",
+  username: "hylsbtewohsbvf",
+  password: "9f9c913865d773ea6d717abbf7f65444ee4739ef150dddba6ef292f18acb7757",
+  host: "ec2-54-162-119-125.compute-1.amazonaws.com",
+  port: 5432,
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: true,
+  },
+});
 
 /*
 let sequelize;
