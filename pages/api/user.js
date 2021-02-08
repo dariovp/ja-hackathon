@@ -23,6 +23,7 @@ export default async (req, res) => {
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
 		if(!email || !mentor){
+			console.log("esaaaaaaaaaaaaaaa")
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}
 
