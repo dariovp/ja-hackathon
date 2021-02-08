@@ -10,19 +10,6 @@ const sequelize = require('../connection/index');
 const models = process.cwd() + '/db/models/' || __dirname;
 
 
-// let sequelize;
-// if (config.use_env_variable) {
-//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-// } else {
-//   sequelize = new Sequelize(
-//     config.database,
-//     config.username,
-//     config.password,
-//     config,
-//   );
-// }
-
-// console.log("sequelize: ", sequelize)
 
 /* fs.readdirSync(__dirname) */
 fs.readdirSync(models)
