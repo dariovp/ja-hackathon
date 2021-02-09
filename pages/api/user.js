@@ -6,7 +6,7 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		const { rc, email, mentor, test } = req.query
+		const { rc, email, mentor, all } = req.query
 
 		let user;
 
@@ -16,7 +16,7 @@ export default async (req, res) => {
 
 
 		
-		if(test){
+		if(all){
 
 			let test = await db.User.findAll();
 
