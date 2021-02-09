@@ -23,7 +23,11 @@ export default async (req, res) => {
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
 		if(!email || !mentor){
-			return res.status(422).send({error: 'Missing one or more fields'})
+			let test = db.User.findAll();
+
+			return res.send(test)
+
+			//return res.status(422).send({error: 'Missing one or more fields'})
 		}
 
 		if(email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
