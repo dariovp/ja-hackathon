@@ -19,10 +19,8 @@
 .footerP {
   height: 100%;
   width: 100%;
-  background: #4e4ed4;
+  background: #8175f3ff;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .footer img {

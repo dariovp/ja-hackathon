@@ -1,41 +1,30 @@
 .all{
     display: flex;
-    background-color: #4e4ed4;
-    margin-bottom: 3rem;
+    background-color: #8175f3ff;
 }
 
 .twitterWidget {
-    margin-left: 22rem;
+    margin-top: 2rem;
+    margin-left: 12rem;
 }
 
 .logo {
     display: flex;
-    margin: 0rem 0.2rem 19.5rem 4rem;
+    align-items: center;
+    margin-left: 9rem;
     color: white;
 }
 
-.borderLogo {
-    border: 2px solid white;
-    border-radius: 4.5px;
-    margin-right: 0.6rem;
-    margin-bottom: 4rem;
-}
-
-.logoText {
-    display: flex;
-    margin-top: 1.3rem;
-}
-
 .contactText {
-    display: inline-block;
-    margin-top: 11.5rem;
-    margin-left: -12.8rem;
+    margin-top: 6.5rem;
+    margin-left: 15rem;
 }
 
 .mail {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1rem;
 }
 
 .mailIcon {
@@ -43,12 +32,13 @@
 }
 
 .mailText {
+    margin-left: -1rem;
+    margin-top: 0.5rem;
     color: white;
 }
 
 .socialMediaIcons{
-    display: flex;
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-top: 5rem;
     margin-left: 0.3rem;
 }
@@ -58,13 +48,9 @@
     color:white
 }
 
-.rocketLogo{
-    font-size: 15rem;
-}
-
 .rights {
-    margin-left: 20rem;
     margin-top: 26rem;
+    margin-left: -16rem;
     font-size: 1.1rem;
     color: white;
 }
