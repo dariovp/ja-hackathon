@@ -1,5 +1,5 @@
 import db from '../../db/models/index';
-
+import mailchimpTx from '@mailchimp/mailchimp_transactional';
 
 export default async (req, res) => {
 	try {
@@ -8,15 +8,13 @@ export default async (req, res) => {
 
 		const { rc, email, mentor } = req.query
 
+
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 		
 
 
-		const mailgun = await require("mailgun-js");
-		const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
-		const api_key = "c370be0328d373b278adf8748c4164a3-77751bfc-11ddc406";
-		const mg = mailgun({apiKey: api_key, domain: DOMAIN});
+		
 		
 		
 
@@ -31,6 +29,22 @@ export default async (req, res) => {
 		}
 
 		if(email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+			
+			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
+			const api_key = "zIklHJiMtCua9cP3PpJU7g";
+
+			const mailData = {
+				from: 'Hernan <hernanhernan559@gmail.com>',
+				to: email,
+				subject: 'Hello',
+				html: '<form><input type="button" value="HOLA"></input></form>'
+			};
+
+			mailchimpTx.users.ping()
+			.then(response => {
+				console.log(response)
+			})
+			
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
 				where: {
@@ -49,21 +63,14 @@ export default async (req, res) => {
 					email: email,
 					mentor : mentor,
 				})
-					.then(data => {
-						console.log(data.dataValues)
+				.then(data => {
+				
+					// Then, send mail to user in order to verify email
 
-						const mailData = {
-							from: 'Hernan <hernanhernan559@gmail.com>',
-							to: email,
-							subject: 'Hello',
-							html: '<form><input type="button" value="HOLA"></input></form>'
-						};
-						mg.messages().send(mailData, function (error, body) {
-							console.log(body);
-							console.log(error);
-						});
-						return data;
-					})
+					console.log(data.dataValues)
+
+					
+				});
 
 				if (rc) {
 					const user = await db.User.findOne({
