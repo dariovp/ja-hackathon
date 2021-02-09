@@ -1,9 +1,9 @@
 import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-// import logo from '../public/moonyLogo.jpg'
-// import Media from 'react-media'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import logo from '../public/moonyLogo.jpg'
+import Media from 'react-media'
 
 export default function Footer() {
     
