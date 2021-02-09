@@ -16,7 +16,7 @@ export default async (req, res) => {
 
 		
 		if(test){
-			let test = db.User.findAll();
+			let test = await db.User.findAll();
 
 			return res.send(test)
 
