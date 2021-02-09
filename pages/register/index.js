@@ -1,27 +1,33 @@
-import { useState } from "react"; 
-import { useRouter} from "next/router"
+import { useState } from "react";
+import { useRouter } from "next/router"
 import { Button, Collapse } from "react-bootstrap";
+import axios from "axios";
 
-export default function Register () {
+export default function Register() {
 
 	const [email, setEmail] = useState('');
+	const [mentor, setMentor] = useState(false);
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
 
+	function handleSubmit(e) {
+		e.preventDefault();
+		console.log("email--->", email)
+		console.log("mentor--->", mentor)
+		axios.post(`http://localhost:3000/api/user`, {rc : rc, email: email, mentor: mentor})
+	}
+
 	return (
 		<div className="vw-100 vh-100 d-flex justify-content-center align-items-center">
-			<form className="border p-5 shadow rounded w-50" onSubmit={() => {
-				//redirect y demas
-			}}>
+			<form className="border p-5 shadow rounded w-50" onSubmit={handleSubmit}>
 				<div className="form-floating mb-3">
 					<input type="email" className="form-control" placeholder="Email Address" aria-label="Email Address" value={email}
-					onChange={e => { 
-						setEmail(e.target.value)
-					}} />
+						onChange={e => {
+							setEmail(e.target.value)
+						}} />
 					<label>Email address</label>
 				</div>
-				{console.log("asd sa", router) }
 				<div className="mb-3">
 					<label htmlFor="dropdown" className="form-label p-2">¿Deseas enseñar o aprender?</label>
 					<Button
@@ -38,20 +44,28 @@ export default function Register () {
 						</div>
 					</Collapse>
 					<div className="form-check">
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked />
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked  
+						onChange={e => {
+							setMentor(false)
+							console.log(mentor)
+						}}/>
 						<label className="form-check-label" htmlFor="flexRadioDefault1">
 							Aprender
 						</label>
-						</div>
-					<div className="form-check">
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+					</div>
+					<div className="form-check" >
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+							onChange={e => {
+								setMentor(true)
+								console.log(mentor)
+							}} />
 						<label className="form-check-label" htmlFor="flexRadioDefault2">
 							Enseñar
 						</label>
 					</div>
 
 				</div>
-				
+
 				<button type="submit" className="btn btn-primary w-100">Submit</button>
 			</form>
 		</div>
