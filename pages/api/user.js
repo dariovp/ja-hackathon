@@ -9,7 +9,7 @@ export default async (req, res) => {
 		const { rc, email, mentor, test } = req.query
 
 
-		await db.sync({ force: true })
+		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 		
 
@@ -46,10 +46,6 @@ export default async (req, res) => {
 				html: '<form><input type="button" value="HOLA"></input></form>'
 			};
 
-			mailchimpTx.users.ping()
-			.then(response => {
-				console.log(response)
-			})
 			
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
