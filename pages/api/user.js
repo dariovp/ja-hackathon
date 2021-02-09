@@ -9,7 +9,7 @@ export default async (req, res) => {
 		const { rc, email, mentor, test } = req.query
 
 
-		await db.sync({ force: false })
+		await db.sync({ force: true })
 		console.log("All models were synchronized successfully!")
 		
 
