@@ -22,6 +22,8 @@ module.exports = {
 	rules: {
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-indent": ["warn", "tab"],
-		"indent": ["warn", "tab"]
+		"indent": ["warn", "tab", {
+			"MemberExpression": 0
+		}]
 	}
 };
