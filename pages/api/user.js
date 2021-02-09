@@ -15,7 +15,12 @@ export default async (req, res) => {
 
 
 		
-		
+		if(test){
+			let test = db.User.findAll();
+
+			return res.send(test)
+
+		}
 		
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
