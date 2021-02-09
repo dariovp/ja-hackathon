@@ -8,6 +8,7 @@ export default async (req, res) => {
 
 		const { rc, email, mentor, test } = req.query
 
+		let user;
 
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
@@ -57,14 +58,14 @@ export default async (req, res) => {
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
 				// Else, create user with that mail
-				const user = await db.User.create({
+				 await db.User.create({
 					email: email,
 					mentor : mentor,
 				})
 				.then(data => {
 				
 					// Then, send mail to user in order to verify email
-
+					user = data.dataValues;
 					console.log(data.dataValues)
 
 					
