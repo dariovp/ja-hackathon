@@ -14,8 +14,8 @@ export default function Register() {
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log("email--->", email)
-		axios.post(`http://localhost:` + PORT + `/api/user`, {rc : rc, email: email})
+		console.log("email--->", PORT)
+		axios.post(`https://localhost:` + PORT + `/api/user`, {rc : rc, email: email})
 	}
 
 	return (
