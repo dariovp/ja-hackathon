@@ -11,6 +11,7 @@ export default function Register(props) {
 	const { rc } = router.query;
 	const PORT = process.env.NEXT_PUBLIC_PORT
 	console.log("asdasdasd", process.env.NEXT_PUBLIC_PORT)
+	console.log("ajuhv bkjb jksd", process.env)
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
@@ -66,8 +67,8 @@ export default function Register(props) {
 }
 
 export async function getStaticProps() {
-	console.log("asdasdasd", process.env.NEXT_PUBLIC_PORT)
+	console.log("asdallllllllllsd", process.env.NEXT_PUBLIC_PORT)
 	return {
-	  props: {}
+	  props: {a :"a"}
 	};
   }
