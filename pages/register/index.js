@@ -10,6 +10,7 @@ export default function Register(props) {
 	const router = useRouter();
 	const { rc } = router.query;
 	const PORT = process.env.NEXT_PUBLIC_PORT
+	console.log("asdasdasd", process.env.NEXT_PUBLIC_PORT)
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
