@@ -3,13 +3,13 @@ import { useRouter } from "next/router"
 import { Button, Collapse } from "react-bootstrap";
 import axios from "axios";
 
-export default function Register() {
+export default function Register(props) {
 
 	const [email, setEmail] = useState('');
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
-	const PORT = process.env.PORT
+	const PORT = process.env.NEXT_PUBLIC_PORT
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
@@ -63,13 +63,10 @@ export default function Register() {
 		</div>
 	);
 }
-/*
+
 export async function getStaticProps() {
-	console.log("aber", process)
-	console.log("asdasdasd", process.env)
+	console.log("asdasdasd", process.env.NEXT_PUBLIC_PORT)
 	return {
-	  props: {
-		puerto: process.env.PORT
-	  } 
+	  props: {}
 	};
-  }*/
+  }
