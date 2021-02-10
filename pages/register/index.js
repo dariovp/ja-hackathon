@@ -16,7 +16,7 @@ export default function Register() {
 		e.preventDefault();
 		console.log("email--->", email)
 		console.log("mentor--->", mentor)
-		axios.post(`http://localhost:3000/api/user`, {rc : rc, email: email, mentor: mentor})
+		axios.post(`http://localhost/api/user`, {rc : rc, email: email, mentor: mentor})
 	}
 
 	return (
@@ -72,7 +72,7 @@ export default function Register() {
 		</div>
 	);
 }
-
+/*
 export async function getStaticProps() {
 	console.log("aber", process)
 	console.log("asdasdasd", process.env)
@@ -81,4 +81,4 @@ export async function getStaticProps() {
 		puerto: process.env.PORT
 	  } 
 	};
-  }
+  }*/
