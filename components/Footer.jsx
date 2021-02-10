@@ -16,7 +16,7 @@ export default function Footer() {
                             <FontAwesomeIcon icon={faEnvelope} className={styles.icon}/>
                         </div>
                         <div className={styles.mailText}>
-                            <h4>team@moonyapp.site</h4>
+                            <h3>team@moonyapp.site</h3>
                         </div>
                     </div>
                     <div className={styles.socialMediaIcons}>
@@ -27,19 +27,21 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/*Logo*/}
-                <div className={styles.logo}>
-                    <img src={logo} alt='logo' height={250} width={250}/>
-                </div>
+                <div className={styles.logoANDrights}>
+                    {/*Logo*/}
+                    <div className={styles.logo}>
+                        <img src={logo} alt='logo' height={220} width={220}/>
+                    </div>
 
-                {/*Rigth text*/}
-                <div className={styles.rights}>
-                    <p>©2021 Moony. All rights reserved</p>
+                    {/*Rigth text*/}
+                    <div className={styles.rights}>
+                        <p>©2021 Moony. All rights reserved</p>
+                    </div>
                 </div>
 
                 {/*Widget Twitter*/}
                 <div className={styles.twitterWidget}>
-                    <a className="twitter-timeline" data-width="380" data-height="380" data-theme="ligth" href="https://twitter.com/themoonyapp?ref_src=twsrc%5Etfw">Tweets by themoonyapp</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <a className="twitter-timeline" data-width="400" data-height="215" data-theme="ligth" href="https://twitter.com/themoonyapp?ref_src=twsrc%5Etfw">Tweets by themoonyapp</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
         </footer>
