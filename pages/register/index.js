@@ -10,13 +10,14 @@ export default function Register() {
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
+	const PORT = process.env.PORT
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
 		e.preventDefault();
 		console.log("email--->", email)
 		console.log("mentor--->", mentor)
-		axios.post(`http://localhost/api/user`, {rc : rc, email: email, mentor: mentor})
+		axios.post(`http://localhost:${PORT}/api/user`, {rc : rc, email: email, mentor: mentor})
 	}
 
 	return (
