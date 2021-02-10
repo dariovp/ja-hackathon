@@ -27,7 +27,7 @@ export default async (req, res) => {
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-		if(!email || !mentor){
+		if(!email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}
 
@@ -60,7 +60,6 @@ export default async (req, res) => {
 				// Else, create user with that mail
 				 await db.User.create({
 					email: email,
-					mentor : mentor,
 				})
 				.then(data => {
 				
@@ -88,7 +87,6 @@ export default async (req, res) => {
 
 				// ....
 
-				console.log("aberrrrrrrrrrr", user)
 				res.status(200).json(user)
 			}
 

@@ -6,7 +6,6 @@ import axios from "axios";
 export default function Register() {
 
 	const [email, setEmail] = useState('');
-	const [mentor, setMentor] = useState(false);
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
@@ -16,8 +15,7 @@ export default function Register() {
 	function handleSubmit(e) {
 		e.preventDefault();
 		console.log("email--->", email)
-		console.log("mentor--->", mentor)
-		axios.post(`http://localhost:${PORT}/api/user`, {rc : rc, email: email, mentor: mentor})
+		axios.post(`http://localhost:` + PORT + `/api/user`, {rc : rc, email: email})
 	}
 
 	return (
@@ -46,21 +44,13 @@ export default function Register() {
 						</div>
 					</Collapse>
 					<div className="form-check">
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked  
-						onChange={e => {
-							setMentor(false)
-							console.log(mentor)
-						}}/>
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" defaultChecked  />
 						<label className="form-check-label" htmlFor="flexRadioDefault1">
 							Aprender
 						</label>
 					</div>
 					<div className="form-check" >
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
-							onChange={e => {
-								setMentor(true)
-								console.log(mentor)
-							}} />
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  />
 						<label className="form-check-label" htmlFor="flexRadioDefault2">
 							Enseñar
 						</label>
