@@ -10,7 +10,7 @@ import WhatIs from "../components/Section/WhatIs.jsx";
 import Footer from "../components/Footer";
 
 
-export default function Home() {
+export default function Home(props) {
 	const [duration, setDuration] = useState(undefined);
 
 	useEffect(() => {
@@ -19,6 +19,8 @@ export default function Home() {
 		// .then(data => {
 		// 	console.log(data)
 		// })
+
+		console.log("Props ", JSON.parse(props.env))
 
 		axios
 		.get(
@@ -44,7 +46,7 @@ export default function Home() {
 		let timer;
 		if (duration) {
 			timer = setInterval(() => {
-				console.log("Cambiando", duration);
+				// console.log("Cambiando", duration);
 				setDuration(duration.clone().subtract(1, "seconds"));
 			}, 1000);
 		}
@@ -75,4 +77,13 @@ export default function Home() {
 		</div>
 	)
 
+}
+
+export async function getStaticProps(context) {
+	//console.log("ALGO-> ",process.env);
+	return {
+		props: {
+			env: JSON.stringify(process.env)
+		}, // will be passed to the page component as props
+	}
 }

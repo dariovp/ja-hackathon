@@ -6,6 +6,8 @@ export default async (req, res) => {
 
 		// console.log(db)
 
+		console.log("asdasdasd entrooo a user");
+
 		const { rc, email, mentor, all } = req.query
 
 		let user;
@@ -58,7 +60,7 @@ export default async (req, res) => {
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
 				// Else, create user with that mail
-				 await db.User.create({
+				await db.User.create({
 					email: email,
 				})
 				.then(data => {

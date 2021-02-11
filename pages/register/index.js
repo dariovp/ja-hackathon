@@ -10,22 +10,28 @@ export default function Register(props) {
 	const router = useRouter();
 	const { rc } = router.query;
 	const port = process.env.PORT
-	console.log("asdasdasd", process.env.PORT)
-	console.log("ajuhv bkjb jksd", process.env)
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
 		e.preventDefault();
 		console.log("email--->", port)
-		axios.post(`https://localhost:` + port + `/api/user`, {rc : rc, email: email})
+		axios.post(`https://localhost:3000/api/user`, {rc : rc, email: email})
+		.then(response => {
+			console.log("response ", response)
+			return response.data
+		})
+		.then(data => {
+			console.log("Hola: ", data)
+		})
 	}
 
 	return (
 		<div className="vw-100 vh-100 d-flex justify-content-center align-items-center">
 			<form className="border p-5 shadow rounded w-50" onSubmit={handleSubmit}>
+				
 				<div className="form-floating mb-3">
 					<input type="email" className="form-control" placeholder="Email Address" aria-label="Email Address" value={email}
-						onChange={e => {
+						onChange={e => { 
 							setEmail(e.target.value)
 						}} />
 					<label>Email address</label>
@@ -51,8 +57,8 @@ export default function Register(props) {
 							Aprender
 						</label>
 					</div>
-					<div className="form-check" >
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  />
+					<div className="form-check">
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
 						<label className="form-check-label" htmlFor="flexRadioDefault2">
 							Enseñar
 						</label>
@@ -67,8 +73,8 @@ export default function Register(props) {
 }
 
 export async function getStaticProps() {
-	console.log("asdallllllllllsd", process.env.NEXT_PUBLIC_PORT)
+	// console.log("asdallllllllllsd", process.env)
 	return {
-	  props: {a :"a"}
+		props: {a :"a"}
 	};
-  }
+}
