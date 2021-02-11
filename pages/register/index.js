@@ -8,12 +8,12 @@ export default function Register(props) {
 	const [email, setEmail] = useState('');
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
-	const { rc } = router.query;
+	const { rc } = router.query;/*
 	const {PORT} = process.env.PORT
 	console.log("asdasdasd", PORT)
 	console.log("wwwww", process.env.PORT)
 	console.log("qqqq", process.env.NEXT_PUBLIC_PORT)
-	console.log("ajuhv bkjb jksd", process.env)
+	console.log("ajuhv bkjb jksd", process.env)*/
 
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
