@@ -9,8 +9,8 @@ export default function Register(props) {
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
-	const port = process.env.PORT
-	console.log("asdasdasd", process.env.PORT)
+	const {PORT} = process.env
+	console.log("asdasdasd", PORT)
 	console.log("ajuhv bkjb jksd", process.env)
 
 	//console.log("puertito tito", props.puerto)
