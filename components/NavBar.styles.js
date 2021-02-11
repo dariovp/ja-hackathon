@@ -18,3 +18,11 @@ export const NavBarItem = styled.li`
 	margin: 0rem 0.3rem;
 	display: inline;
 `;
+
+export const Button = styled.li`
+	color: ${colors.primary};
+`;
+
+export const Text = styled.div`
+	color: white;
+`;
