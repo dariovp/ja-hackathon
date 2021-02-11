@@ -2,7 +2,7 @@ const withImages = require('next-images')
 
 module.exports = withImages({
     env: {
-        PORT: 'my-value',
+        PORT: NEXT_PUBLIC_PORT,
     },
 })
 
