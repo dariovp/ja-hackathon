@@ -3,7 +3,7 @@ const withImages = require('next-images')
 
 module.exports = withImages({
     env: {
-        PORT: $PORT || 8080,
+        PORT: process.env.PORT || 8080,
     },
 })
 
