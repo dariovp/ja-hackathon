@@ -6,7 +6,7 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		const { rc, email, mentor, all } = req.query
+		//const { rc, email, mentor, all } = req.query
 
 		let user;
 
@@ -38,7 +38,7 @@ export default async (req, res) => {
 
 			const mailData = {
 				from: 'Hernan <hernanhernan559@gmail.com>',
-				to: email,
+				to: req.body.email,
 				subject: 'Hello',
 				html: '<form><input type="button" value="HOLA"></input></form>'
 			};
@@ -47,7 +47,7 @@ export default async (req, res) => {
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
 				where: {
-					email: email
+					email: req.body.email,
 				}
 			})
 
@@ -59,7 +59,7 @@ export default async (req, res) => {
 			} else {
 				// Else, create user with that mail
 				 await db.User.create({
-					email: email,
+					email: req.body.email,
 				})
 				.then(data => {
 				
@@ -73,7 +73,7 @@ export default async (req, res) => {
 				if (rc) {
 					const user = await db.User.findOne({
 						where: {
-							id: rc
+							id: req.body.rc
 						}
 					});
 
