@@ -10,6 +10,8 @@ export default async (req, res) => {
 
 		let user;
 
+		console.log(req.body)
+
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 		
