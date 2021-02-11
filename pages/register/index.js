@@ -18,7 +18,7 @@ export default function Register(props) {
 	//console.log("puertito tito", props.puerto)
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log("email--->", PORT)
+		//console.log("email--->", PORT)
 		axios.post(`https://alunisaje.herokuapp.com/api/user`, {rc : rc, email: email})
 	}
 
