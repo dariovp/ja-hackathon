@@ -1,9 +1,9 @@
 .intro {
     width: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
 }
 
 .title {
@@ -23,9 +23,10 @@
 }
 
 .rocketSection {
-  width: 30%;
+  width: 40%;
   height: 25rem;
   display:flex;
+  margin-bottom: 4rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -42,7 +43,7 @@
 
 .socialMediaIcons{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: top;
   font-size: 4rem;
   margin-top: 5rem;
@@ -74,5 +75,11 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+}
+
+.dateInfo{
+font-size: 0.8rem;
+color: #4e4ed4;
+font-weight: bold;
 }
 
