@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "build": "",
-    "start": "node index.js"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
