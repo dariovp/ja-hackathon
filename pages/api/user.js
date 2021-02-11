@@ -6,8 +6,9 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		const { rc, email, mentor } = req.query
+		const { rc, email, mentor, all } = req.query
 
+		let user;
 
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
@@ -15,12 +16,18 @@ export default async (req, res) => {
 
 
 		
-		
+		if(all){
+
+			let test = await db.User.findAll();
+
+			return res.send(test)
+
+		}
 		
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-		if(!email || !mentor){
+		if(!email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}
 
@@ -36,10 +43,6 @@ export default async (req, res) => {
 				html: '<form><input type="button" value="HOLA"></input></form>'
 			};
 
-			mailchimpTx.users.ping()
-			.then(response => {
-				console.log(response)
-			})
 			
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
@@ -55,14 +58,13 @@ export default async (req, res) => {
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
 				// Else, create user with that mail
-				const user = await db.User.create({
+				 await db.User.create({
 					email: email,
-					mentor : mentor,
 				})
 				.then(data => {
 				
 					// Then, send mail to user in order to verify email
-
+					user = data.dataValues;
 					console.log(data.dataValues)
 
 					
@@ -84,7 +86,6 @@ export default async (req, res) => {
 				// Send email to validate account state
 
 				// ....
-
 
 				res.status(200).json(user)
 			}
