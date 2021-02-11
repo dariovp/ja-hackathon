@@ -73,7 +73,7 @@ export default function Register(props) {
 }
 
 export async function getStaticProps() {
-	// console.log("asdallllllllllsd", process.env)
+	console.log("ENV: ", process.env)
 	return {
 		props: {a :"a"}
 	};
