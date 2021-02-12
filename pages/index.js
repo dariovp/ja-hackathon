@@ -80,7 +80,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(context) {
-	//console.log("ALGO-> ",process.env);
+	console.log("ALGO-> ",process.env);
 	return {
 		props: {
 			env: JSON.stringify(process.env)
