@@ -63,14 +63,14 @@ export default async (req, res) => {
 				await db.User.create({
 					email: req.body.email,
 				})
-					.then(data => {
+				.then(data => {
 
-						// Then, send mail to user in order to verify email
-						user = data.dataValues;
-						console.log(data.dataValues)
+					// Then, send mail to user in order to verify email
+					user = data.dataValues;
+					console.log(data.dataValues)
 
 
-					});
+				});
 
 				if (req.body.rc) {
 					user = await db.User.findOne({

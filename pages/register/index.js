@@ -9,14 +9,6 @@ export default function Register(props) {
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
-	/*
-	const {PORT} = process.env.PORT
-	console.log("asdasdasd", PORT)
-	console.log("wwwww", process.env.PORT)
-	console.log("qqqq", process.env.NEXT_PUBLIC_PORT)
-	console.log("ajuhv bkjb jksd", process.env)
-	*/
-
 	
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -26,9 +18,10 @@ export default function Register(props) {
 	return (
 		<div className="vw-100 vh-100 d-flex justify-content-center align-items-center">
 			<form className="border p-5 shadow rounded w-50" onSubmit={handleSubmit}>
+				
 				<div className="form-floating mb-3">
 					<input type="email" className="form-control" placeholder="Email Address" aria-label="Email Address" value={email}
-						onChange={e => {
+						onChange={e => { 
 							setEmail(e.target.value)
 						}} />
 					<label>Email address</label>
@@ -54,8 +47,8 @@ export default function Register(props) {
 							Aprender
 						</label>
 					</div>
-					<div className="form-check" >
-						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  />
+					<div className="form-check">
+						<input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
 						<label className="form-check-label" htmlFor="flexRadioDefault2">
 							Enseñar
 						</label>
@@ -70,8 +63,8 @@ export default function Register(props) {
 }
 
 export async function getStaticProps() {
-	console.log("asdallllllllllsd", process.env.NEXT_PUBLIC_PORT)
+	console.log("ENV: ", process.env)
 	return {
-	  props: {a :"a"}
+		props: {a :"a"}
 	};
-  }
+}
