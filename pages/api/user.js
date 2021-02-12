@@ -6,7 +6,7 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		const { rc, email, mentor, all } = req.query
+		const { rc, mentor, all } = req.query
 
 		let user;
 
@@ -32,7 +32,7 @@ export default async (req, res) => {
 		/*if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
-		//let email = req.body.email
+		let email = req.body.email
 		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
 			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
