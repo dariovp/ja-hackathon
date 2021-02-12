@@ -44,7 +44,7 @@ export default function Home() {
 		let timer;
 		if (duration) {
 			timer = setInterval(() => {
-				console.log("Cambiando", duration);
+				//console.log("Cambiando", duration);
 				setDuration(duration.clone().subtract(1, "seconds"));
 			}, 1000);
 		}
