@@ -12,7 +12,7 @@ export default function Register(props) {
 	
 	function handleSubmit(e) {
 		e.preventDefault();
-		axios.post(`https://moonyapp.com/api/user`, {email: email})
+		axios.post(`https://www.moonyapp.site/api/user`, {email: email})
 	}
 
 	return (
