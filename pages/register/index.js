@@ -12,14 +12,7 @@ export default function Register(props) {
 	
 	function handleSubmit(e) {
 		e.preventDefault();
-		axios.post(`https://moonyapp.herokuapp.com/api/user`, {rc : rc, email: email})
-		.then(response => {
-			console.log("response ", response)
-			return response.data
-		})
-		.then(data => {
-			console.log("Hola: ", data)
-		})
+		axios.post(`https://www.moonyapp.site/api/user`, {email: email})
 	}
 
 	return (
