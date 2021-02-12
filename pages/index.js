@@ -29,6 +29,7 @@ export default function Home(props) {
 		.then((response) => response.data)
 		.then((data) => {
 			console.log(data);
+			console.log("Props -> ", JSON.parse(props.env))
 			const now = moment.utc(data["datetime"], moment.ISO_8601);
 			const lanzamiento = moment.utc(
 				"2021-03-01T00:00:00.151826-03:00",
@@ -80,7 +81,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(context) {
-	console.log("ALGO-> ",process.env);
+	
 	return {
 		props: {
 			env: JSON.stringify(process.env)
