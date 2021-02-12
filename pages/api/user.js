@@ -6,50 +6,50 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		console.log("asdasdasd entrooo a user");
-
-		const { rc, email, mentor, all } = req.query
+		const { rc, mentor, all } = req.query
 
 		let user;
 
+		//console.log(req.body)
+
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
-		
+
+		console.log("asdasd", req.body)
 
 
-		
-		if(all){
+		if (all) {
 
 			let test = await db.User.findAll();
 
 			return res.send(test)
 
 		}
-		
+
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-		if(!email ){
+		/*if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
-		}
+		}*/
+		let email = req.body.email
+		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
-		if(email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
-			
 			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
 			const api_key = "zIklHJiMtCua9cP3PpJU7g";
 
 			const mailData = {
 				from: 'Hernan <hernanhernan559@gmail.com>',
-				to: email,
+				to: req.body.email,
 				subject: 'Hello',
 				html: '<form><input type="button" value="HOLA"></input></form>'
 			};
 
-			
+
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
 				where: {
-					email: email
+					email: req.body.email,
 				}
 			})
 
@@ -61,21 +61,21 @@ export default async (req, res) => {
 			} else {
 				// Else, create user with that mail
 				await db.User.create({
-					email: email,
+					email: req.body.email,
 				})
 				.then(data => {
-				
+
 					// Then, send mail to user in order to verify email
 					user = data.dataValues;
 					console.log(data.dataValues)
 
-					
+
 				});
 
-				if (rc) {
-					const user = await db.User.findOne({
+				if (req.body.rc) {
+					user = await db.User.findOne({
 						where: {
-							id: rc
+							id: req.body.rc
 						}
 					});
 
@@ -83,7 +83,7 @@ export default async (req, res) => {
 					await user.save({ fields: ['points'] });
 				}
 
-				
+
 
 				// Send email to validate account state
 
@@ -92,16 +92,28 @@ export default async (req, res) => {
 				res.status(200).json(user)
 			}
 
-			
-	
-	
+
+
+
 		} else {
-			res.status(500).send({message: "Invalid email format"});
+			if (req.body.all) {
+
+				let test = await db.User.findAll()
+				.then(data => {
+					console.log(data.dataValues)
+				});
+
+				res.status(200).send(test)
+
+			}
+
+
+			res.status(500).send({ message: "Invalid email format" });
 		}
 
-		
+
 	} catch (error) {
 		console.error(error);
-		res.status(500).send({message: "Error creating on the server", error: error})
+		res.status(500).send({ message: "Error creating on the server", error: error })
 	}
 }

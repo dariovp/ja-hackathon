@@ -9,13 +9,10 @@ export default function Register(props) {
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 	const { rc } = router.query;
-	const port = process.env.PORT
-
-	//console.log("puertito tito", props.puerto)
+	
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log("email--->", port)
-		axios.post(`https://localhost:3000/api/user`, {rc : rc, email: email})
+		axios.post(`https://moonyapp.herokuapp.com/api/user`, {rc : rc, email: email})
 		.then(response => {
 			console.log("response ", response)
 			return response.data

@@ -47,7 +47,11 @@ export default function Home(props) {
 		let timer;
 		if (duration) {
 			timer = setInterval(() => {
+<<<<<<< HEAD
 				// console.log("Cambiando", duration);
+=======
+				//console.log("Cambiando", duration);
+>>>>>>> 380d7e06297e94df9e98c99624cf787558785880
 				setDuration(duration.clone().subtract(1, "seconds"));
 			}, 1000);
 		}
