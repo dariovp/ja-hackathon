@@ -72,7 +72,7 @@ export default async (req, res) => {
 					
 				});
 
-				if (rc) {
+				if (req.body.rc) {
 					const user = await db.User.findOne({
 						where: {
 							id: req.body.rc
