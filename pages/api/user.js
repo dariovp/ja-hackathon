@@ -15,7 +15,7 @@ export default async (req, res) => {
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 
-
+		console.log("asdasd", req.body.all)
 
 
 		if (req.body.all) {
