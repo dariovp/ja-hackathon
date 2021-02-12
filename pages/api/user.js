@@ -96,6 +96,15 @@ export default async (req, res) => {
 	
 	
 		} else {
+			if(req.body.all){
+
+				let test = await db.User.findAll();
+	
+				return res.send(test)
+	
+			}
+
+
 			res.status(500).send({message: "Invalid email format"});
 		}
 
