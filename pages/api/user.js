@@ -32,8 +32,8 @@ export default async (req, res) => {
 		/*if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
-
-		if(req.body.email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+		let email = req.body.email
+		if(email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 			
 			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
 			const api_key = "zIklHJiMtCua9cP3PpJU7g";
