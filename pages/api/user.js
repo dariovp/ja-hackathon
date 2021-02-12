@@ -79,7 +79,7 @@ export default async (req, res) => {
 						}
 					});
 
-					user.points++; // calcs need to be done
+					user.points+=5; // calcs need to be done
 					await user.save({ fields: ['points'] });
 				}
 
