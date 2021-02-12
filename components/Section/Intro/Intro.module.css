@@ -7,19 +7,18 @@
 }
 
 .title {
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
   line-height: 1.15;
   font-size: 4rem;
   justify-content: left;
 }
 
 .description {
-  width: 60%;
   height: 25rem;
   display: flex;
   justify-content: left;
+  flex-direction: column;
   align-items: center;
-  padding: 6rem;
 }
 
 .rocketSection {
@@ -103,9 +102,9 @@ font-weight: bold;
 .registerStyle{
   width: 30rem;
   padding: 1rem;
-  margin-top: 4rem;
   color:#8175f3ff;
-box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;}
+  box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;
+}
 
 .imgStyle{
   transform:
