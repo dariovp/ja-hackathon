@@ -6,7 +6,7 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		//const { rc, email, mentor, all } = req.query
+		const { rc, email, mentor, all } = req.query
 
 		let user;
 
@@ -15,10 +15,10 @@ export default async (req, res) => {
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 
-		console.log("asdasd", req.body.all)
+		console.log("asdasd", req.body)
 
 
-		if (req.body.all) {
+		if (all) {
 
 			let test = await db.User.findAll();
 
