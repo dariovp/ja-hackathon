@@ -26,6 +26,17 @@ export default async (req, res) => {
 
 		}
 
+		if (req.body.rc) {
+			user = await db.User.findOne({
+				where: {
+					id: req.body.rc
+				}
+			});
+
+			user.points+=5; // calcs need to be done
+			await user.save({ fields: ['points'] });
+		}
+
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
@@ -72,16 +83,7 @@ export default async (req, res) => {
 
 				});
 
-				if (req.body.rc) {
-					user = await db.User.findOne({
-						where: {
-							id: req.body.rc
-						}
-					});
-
-					user.points+=5; // calcs need to be done
-					await user.save({ fields: ['points'] });
-				}
+				
 
 
 
