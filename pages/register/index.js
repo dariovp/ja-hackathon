@@ -20,7 +20,7 @@ export default function Register(props) {
 	
 	function handleSubmit(e) {
 		e.preventDefault();
-		axios.post(`https://alunisaje.herokuapp.com/api/user`, {email: email})
+		axios.post(`https://moonyapp.herokuapp.com/api/user`, {email: email})
 	}
 
 	return (
