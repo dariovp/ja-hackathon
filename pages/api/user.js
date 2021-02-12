@@ -29,7 +29,7 @@ export default async (req, res) => {
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
-		if(!email ){
+		if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}
 
