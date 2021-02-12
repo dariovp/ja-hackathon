@@ -14,18 +14,18 @@ export default async (req, res) => {
 
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
-		
 
 
-		
-		if(req.body.all){
+
+
+		if (req.body.all) {
 
 			let test = await db.User.findAll();
 
 			return res.send(test)
 
 		}
-		
+
 
 		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
 
@@ -33,8 +33,8 @@ export default async (req, res) => {
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
 		let email = req.body.email
-		if(email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
-			
+		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+
 			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
 			const api_key = "zIklHJiMtCua9cP3PpJU7g";
 
@@ -45,7 +45,7 @@ export default async (req, res) => {
 				html: '<form><input type="button" value="HOLA"></input></form>'
 			};
 
-			
+
 			// check if email is in database
 			const maybeuser = await db.User.findOne({
 				where: {
@@ -60,17 +60,17 @@ export default async (req, res) => {
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
 				// Else, create user with that mail
-				 await db.User.create({
+				await db.User.create({
 					email: req.body.email,
 				})
-				.then(data => {
-				
-					// Then, send mail to user in order to verify email
-					user = data.dataValues;
-					console.log(data.dataValues)
+					.then(data => {
 
-					
-				});
+						// Then, send mail to user in order to verify email
+						user = data.dataValues;
+						console.log(data.dataValues)
+
+
+					});
 
 				if (req.body.rc) {
 					user = await db.User.findOne({
@@ -83,7 +83,7 @@ export default async (req, res) => {
 					await user.save({ fields: ['points'] });
 				}
 
-				
+
 
 				// Send email to validate account state
 
@@ -92,25 +92,28 @@ export default async (req, res) => {
 				res.status(200).json(user)
 			}
 
-			
-	
-	
-		} else {
-			if(req.body.all){
 
-				let test = await db.User.findAll();
-	
-				return res.send(test)
-	
+
+
+		} else {
+			if (req.body.all) {
+
+				let test = await db.User.findAll()
+				.then(data => {
+					console.log(data.dataValues)
+				});
+
+				res.send(test)
+
 			}
 
 
-			res.status(500).send({message: "Invalid email format"});
+			res.status(500).send({ message: "Invalid email format" });
 		}
 
-		
+
 	} catch (error) {
 		console.error(error);
-		res.status(500).send({message: "Error creating on the server", error: error})
+		res.status(500).send({ message: "Error creating on the server", error: error })
 	}
 }
