@@ -103,7 +103,7 @@ export default async (req, res) => {
 					console.log(data.dataValues)
 				});
 
-				res.send(test)
+				res.status(200).send(test)
 
 			}
 
