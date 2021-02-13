@@ -18,14 +18,12 @@
 }
 
 .missionStatement{
-  height: 10rem;
   color:white;
-  padding-right:15rem;
   font-size: 1.2rem;
-  margin-top: 2rem;
 }
 
 .description{
-  font-weight:400;
+  font-weight: 400;
+  width: 75%;
 }
 

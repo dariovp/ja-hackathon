@@ -14,7 +14,7 @@
 }
 
 .description {
-  height: 25rem;
+  height: 100%;
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -41,7 +41,7 @@
 }
 
 .registerInput{
-  width: 20rem;
+  width: 100%;
   height: 2.5rem;
   display: flex;
   margin-top: 2rem;
@@ -55,7 +55,7 @@
 }
 
 .subtitle{
-  font-size: 1.5rem
+  font-size: 1rem
 }
 
 .inputButton{
@@ -100,7 +100,7 @@ font-weight: bold;
 }
 
 .registerStyle{
-  width: 30rem;
+  width: 100%;
   padding: 1rem;
   color:#8175f3ff;
   box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;
