@@ -12,7 +12,7 @@ export default function Intro(props) {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<Container className={styles.intro}>
+		<Container fluid className={`${styles.intro}`}>
 			<Row className="justify-content-md-center align-items-md-center w-100 h-100">
 				<div className={styles.description}>
 				

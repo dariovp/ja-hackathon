@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 
 
 import { faChartLine, faCommentsDollar,faUser} from '@fortawesome/free-solid-svg-icons';
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 export default function WhatIs () {
@@ -18,14 +19,26 @@ export default function WhatIs () {
 
 	return (
 		<div className={styles.main}>
-			<div className={styles.missionStatement}>
-				<h1>Discover</h1>
-				<p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
-			</div>
+			
+			<Container fluid>
+				<div className={styles.missionStatement}>
+					<h1>Discover</h1>
+					<p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+				</div>
+				<Row xl={3} lg={3} md={3} sm={1} xs={1}>
+					<Col className="d-flex justify-content-center align-items-center my-2">
+						<Card title = "Feature 1" description={cardText1} icon = {faChartLine} />
+					</Col>
+					<Col className="d-flex justify-content-center align-items-center my-2">
+						<Card title = "Feature 2" description={cardText2} icon = {faCommentsDollar}/>
+					</Col>
+					<Col className="d-flex justify-content-center align-items-center my-2">
+						<Card title = "Feature 3" description={cardText3} icon = {faUser}/>
+					</Col>
+				</Row>
+			</Container>
 			{/* <motion.div initial="false" animate="visible" variants={variants} className = {styles.cardContainer}>
-				<Card title = "Feature 1" description={cardText1} icon = {faChartLine} />
-				<Card title = "Feature 2" description={cardText2} icon = {faCommentsDollar}/>
-				<Card title = "Feature 3" description={cardText3} icon = {faUser}/>
+				
 			</motion.div> */}
 		</div> 
 	)
