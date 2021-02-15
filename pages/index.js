@@ -67,11 +67,10 @@ export default function Home() {
 				<Section>
 					<WhatIs />
 				</Section>
-				<Section className={styles.footerP}>
+	
 					
-					<Footer />
-					
-				</Section>
+				<Footer />
+			
 			</main>
 		</div>
 	)
