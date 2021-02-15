@@ -26,7 +26,7 @@ export default function Intro(props) {
     // 	})
     // },[]);
 
-    
+
 
     function submitRegister() {
         axios.post("../../../api/mailchimp", {
@@ -48,34 +48,38 @@ export default function Intro(props) {
     return (
         <Container fluid className={`${styles.intro}`}>
             <Row className="justify-content-md-center align-items-md-center w-100 h-100">
-                <div className={styles.description}>
 
-                    <h1 className={styles.title}>
-                        Welcome to <label className={styles.moonyTitle}>Moony</label>
-                    </h1>
-                    <p className={`${styles.subtitle} w-100`}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <Col>
+                    <div className={styles.description}>
+
+                        <h1 className={styles.title}>
+                            Welcome to <label className={styles.moonyTitle}>Moony</label>
+                        </h1>
+                        <p className={`${styles.subtitle} w-80`}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
-                    <div className={styles.registerStyle}>
-                        <h1>Get Onboard</h1>
-                        <div className={`form-group ${styles.registerInput}`}>
-                            <input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
-                            <button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister()}>Join</button>
+                        <div className={styles.registerStyle}>
+                            <h1>Get Onboard</h1>
+                            <div className={`form-group ${styles.registerInput}`}>
+                                <input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+                                <button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister()}>Join</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-
-                <div>
-                    <Image
-                        className={styles.imgStyle}
-                        src={smtpImage}
-                        alt="Picture of the author"
-                        width={260}
-                        height={520} />
-                </div>
+                </Col>
+                <Col>
+                    <div>
+                        <Image
+                            className={styles.imgStyle}
+                            src={smtpImage}
+                            alt="Picture of the author"
+                            width={260}
+                            height={520} />
+                    </div>
+                </Col>
             </Row>
         </Container>
-    )}
+    )
+}
 
 
