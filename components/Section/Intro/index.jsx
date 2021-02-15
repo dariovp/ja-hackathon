@@ -27,7 +27,7 @@ export default function Intro(props) {
     // },[]);
 
     function submitRegister() {
-        axios.post("http://localhost:3000/api/mailchimp", {
+        axios.post("https://www.moonyapp.site/api/mailchimp", {
             email,
         }).then(response => {
             console.log("RESPONSE MAILCHIMP", response)
