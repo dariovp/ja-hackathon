@@ -1,5 +1,4 @@
 import db from '../../db/models/index';
-import mailchimpTx from '@mailchimp/mailchimp_transactional';
 
 export default async (req, res) => {
 	try {
