@@ -26,12 +26,14 @@ export default function Intro(props) {
     // 	})
     // },[]);
 
+    
+
     function submitRegister() {
-        axios.post("https://www.moonyapp.site/api/mailchimp", {
+        axios.post("../../../api/mailchimp", {
             email,
         }).then(response => {
             console.log("RESPONSE MAILCHIMP", response)
-            axios.post(`https://www.moonyapp.site/api/user`, { email })
+            axios.post(`../../../api/user`, { email })
                 .then(response => {
                     console.log("RESPONSE DB", response);
                 }).catch(response => {
