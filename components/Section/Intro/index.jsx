@@ -13,6 +13,7 @@ export default function Intro(props) {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [open, setOpen] = useState(false);
+    const [regSwitch, setregSwitch] = useState('');
 
     // useEffect(() => {
     //     axios.post("http://localhost:3000/api/mailchimp", {
@@ -27,14 +28,19 @@ export default function Intro(props) {
     
     function submitRegister(){
         axios.post("http://localhost:3000/api/mailchimp", {
-            email: email,
+           email,
         }).then(response => {
-            console.log("RESPONSE", response);
+            console.log("RESPONSE MAILCHIMP", response)
+            axios.post(`https://www.moonyapp.site/api/user`, {email})
+            .then(response => {
+                console.log("RESPONSE DB", response);
+            }).catch(response => {
+                console.log("ERROR DB", response)
+            })
         }).catch(error => {
-            console.log("ERROR", error)
+            console.log("ERROR MAILCHIMP", error)
         })
-
-        setEmail("");
+        setEmail(""); 
     }
     
     return (
@@ -45,8 +51,9 @@ export default function Intro(props) {
                         Welcome to <label className={styles.moonyTitle}>Moony</label>
                     </h1 >
                     <p className={styles.subtitle}>
-                    Somos tu red social de inversiones. Si estás empezando, aprendé a invertir acompañado de expertos en el mercado. 
-                    </p>
+                    Somos tu red social de inversiones. 
+                    ¿Estás empezando? Seguí y aprendé de los que saben.
+                    ¿Sos experto? Generá rendimientos compartiendo tus inversiones y experiencias.                    </p>
                     <div className ={styles.registerStyle}> 
                         <h1>Get Onboard</h1>
                         <div className={`form-group ${styles.registerInput}`}>
