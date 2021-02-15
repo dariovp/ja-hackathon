@@ -3,17 +3,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
 }
 
+.title {
+  margin-bottom: 2rem;
+  line-height: 1.15;
+  font-size: 4rem;
+  justify-content: left;
+}
 
 .description {
-  width: 60%;
-  height: 25rem;
+  height: 100%;
   display: flex;
-  justify-content: left;
-  align-items: center;
-  padding: 6rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .rocketSection {
@@ -36,7 +41,7 @@
 }
 
 .registerInput{
-  width: 20rem;
+  width: 100%;
   height: 2.5rem;
   display: flex;
   margin-top: 2rem;
@@ -47,6 +52,10 @@
 .icon{
   margin-right: 3rem;
   color:#8175f3ff
+}
+
+.subtitle{
+  font-size: 1rem
 }
 
 .inputButton{
@@ -91,12 +100,12 @@ font-weight: bold;
 }
 
 .registerStyle{
-  width: 30rem;
-  height: 11rem;
+  width: 100%;
+  max-width: 22.5rem;
   padding: 1rem;
-  margin-top: 4rem;
   color:#8175f3ff;
-box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;}
+  box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;
+}
 
 @keyframes typewriter{
   from{width: 0;}
