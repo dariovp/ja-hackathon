@@ -44,13 +44,13 @@ export default function Intro(props) {
 
 	return (
 		<Container fluid className={`${styles.intro}`}>
-			<Row xl={2} lg={2} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100 h-100">
-				<Col>
+			<Row lg={2} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100 h-100">
+				<Col xl={4}>
 					<div className={styles.description}>
 						<h1 className={styles.title}>
 							Welcome to <label className={styles.moonyTitle}>Moony</label>
 						</h1>
-						<p className={`${styles.subtitle} w-100`}>
+						<p className={`${styles.subtitle}`}>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</p>
 						<div className={styles.registerStyle}>
@@ -62,7 +62,7 @@ export default function Intro(props) {
 						</div>
 					</div>
 				</Col>
-				<Col className="d-flex align-items-center justify-content-center">
+				<Col xl={4} className="d-flex align-items-center justify-content-center">
 					<Image
 						className={styles.imgStyle}
 						src={smtpImage}
