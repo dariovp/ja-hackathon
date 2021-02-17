@@ -11,7 +11,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(2);
+	const [regSwitch, setregSwitch] = useState(1);
 
 	// useEffect(() => {
 	//     axios.post("http://localhost:3000/api/mailchimp", {
@@ -78,7 +78,7 @@ export default function Intro(props) {
 										<Col>
 											<div className={styles.registerBox}>Coins {}</div>
 										</Col>
-									</Row>W
+									</Row>
 								</div>
 							</div>}
 						</div>
