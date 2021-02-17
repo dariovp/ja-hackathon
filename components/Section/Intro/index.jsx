@@ -29,8 +29,6 @@ export default function Intro(props) {
 	// 	})
 	// },[]);
 
-	const { rc } = router.query;
-
 	function submitRegister(e) {
 		e.preventDefault();
 		axios.post("../../../api/mailchimp", {
