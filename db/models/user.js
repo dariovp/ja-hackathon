@@ -13,6 +13,11 @@ const User = sequelize.define(
 			allowNull: false, // No nulleable.
 			autoIncrement: true
 		},
+		firstName: {
+			type: Sequelize.STRING,
+			allowNull: false,
+			defaultValue: "",
+		},
 		email: {
 			type: Sequelize.STRING,
 			allowNull: false,
