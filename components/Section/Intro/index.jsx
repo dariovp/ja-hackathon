@@ -5,7 +5,7 @@ import Image from 'next/image';
 import smtpImage from "../../../public/smartphone3.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
-import { router } from "next/router"
+import { useRouter } from "next/router"
 
 
 export default function Intro(props) {
@@ -16,6 +16,7 @@ export default function Intro(props) {
 	const [regSwitch, setregSwitch] = useState(1);
 	const [user, setUser] = useState({});
 
+	const router = useRouter();
 	const { rc } = router.query;
 
 	// useEffect(() => {
