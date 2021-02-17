@@ -8,9 +8,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 
 export default function WhatIs () {
-	const cardText1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
-	const cardText2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
-	const cardText3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
+	const cardText1 = "Copiá los movimientos de los mejores inversores y ganá como ellos mientras aprendés en el camino"
+	const cardText2 = "Descubrí y conectá con gente de la comunidad. Enterate cuáles son las opiniones y últimos hallazgos de los expertos en el mercado. "
+	const cardText3 = "Si sos trader, compartí y monetiza tus conocimientos y opiniones!"
 
 	const variants = {
 		hidden: { opacity: 0 },
