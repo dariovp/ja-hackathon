@@ -5,7 +5,7 @@ import Image from 'next/image';
 import smtpImage from "../../../public/smartphone3.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
-import { useRouter } from "next/router"
+import { router } from "next/router"
 
 
 export default function Intro(props) {
@@ -79,11 +79,11 @@ export default function Intro(props) {
 								<h1>Bienvenido {}</h1>
 								<div >
 									<Row className={styles.registerRow}>
-										<div className={styles.referralCode}><p>Referal Link {user.id}</p></div>
+										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/ +{user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
 										<Col>
-											<div className={styles.registerBox}>Referidos</div>
+											<div className={styles.registerBox}>Referidos {user.ref} </div>
 										</Col>
 										<Col>
 											<div className={styles.registerBox}>Coins {user.coins}</div>
