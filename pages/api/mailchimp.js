@@ -6,6 +6,7 @@ export default async (req, res) => {
 		const listId = "fb37277973";
 		const subscribingUser = {
 			email: req.body.email,
+			firstName: req.body.name,
 		};
 
 		mailchimp.setConfig({
@@ -17,6 +18,7 @@ export default async (req, res) => {
 			email_address: subscribingUser.email,
 			status: "subscribed",
 			merge_fields: {
+				FNAME: subscribingUser.firstName,
 			}
 		});
 

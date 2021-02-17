@@ -11,7 +11,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(1);
+	const [regSwitch, setregSwitch] = useState(2);
 
 	// useEffect(() => {
 	//     axios.post("http://localhost:3000/api/mailchimp", {
@@ -28,9 +28,10 @@ export default function Intro(props) {
 		e.preventDefault();
 		axios.post("../../../api/mailchimp", {
 			email,
+			name,
 		}).then(response => {
 			console.log("RESPONSE MAILCHIMP", response)
-			axios.post(`../../../api/user`, { email })
+			axios.post(`../../../api/user`, { email, name })
 			.then(response => {
 				console.log("RESPONSE DB", response);
 				setEmail("");
@@ -59,15 +60,25 @@ export default function Intro(props) {
 								<h1>Get Onboard</h1>
 								<div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+									<input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />
 									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
 								</div>
 							</div>}
 
-							{regSwitch == 2 && <div>
+							{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
 								<h1>Bienvenido 🚀</h1>
-								<div className={`form-group ${styles.registerInput}`}>
-									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
-									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
+								<div >
+									<Row className={styles.registerRow}>
+										<div className={styles.referralCode}><p>Referal Link {}</p></div>
+									</Row>
+									<Row className={styles.registerRow}>
+										<Col>
+											<div className={styles.registerBox}>Referidos {}</div>
+										</Col>
+										<Col>
+											<div className={styles.registerBox}>Coins {}</div>
+										</Col>
+									</Row>
 								</div>
 							</div>}
 						</div>

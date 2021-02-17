@@ -48,12 +48,13 @@
 }
 
 .registerInput{
-  width: 100%;
-  height: 2.5rem;
+  width: 20rem;
+  height: auto;
   display: flex;
-  margin-top: 2rem;
+  margin-top: rem;
   justify-content: left;
   align-items: center;
+  flex-direction: column;
 }
 
 .icon{
@@ -161,6 +162,20 @@ font-weight: bold;
     rotateY(-25deg) scale(0.9)
     rotateX(15deg);
   opacity: 1;
+}
+
+.registerBox{
+  border: 1px solid black;
+  height: 6rem;
+  width: 6rem;
+}
+
+.referralCode{
+  border: 1px solid black;
+}
+
+.registerRow{
+  margin-top: 1rem;
 }
 
 
