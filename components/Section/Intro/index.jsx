@@ -46,6 +46,7 @@ export default function Intro(props) {
 					id: response["data"]["id"],
 					name: response["data"]["firstName"],
 					points: response["data"]["points"],
+					ref: response["data"]["ref"],
 				})
 			}).catch(response => {
 				console.log("ERROR DB", response)
@@ -82,7 +83,7 @@ export default function Intro(props) {
 								<h1>Bienvenido {user.name}</h1>
 								<div >
 									<Row className={styles.registerRow}>
-										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/ +{user.id}</p></div>
+										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/{user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
 										<Col>
