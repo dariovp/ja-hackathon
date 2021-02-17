@@ -11,6 +11,12 @@ const User = sequelize.define(
 			type: DataTypes.INTEGER, // Tipo de dato.
 			primaryKey: true, // Primary Key set.
 			allowNull: false, // No nulleable.
+			autoIncrement: true
+		},
+		firstName: {
+			type: Sequelize.STRING,
+			allowNull: false,
+			defaultValue: "",
 		},
 		email: {
 			type: Sequelize.STRING,
