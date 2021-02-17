@@ -8,7 +8,7 @@ const User = sequelize.define(
 	'User',
 	{
 		id: {
-			type: sequelize.INTEGER, // Tipo de dato.
+			type: Sequelize.INTEGER, // Tipo de dato.
 			primaryKey: true, // Primary Key set.
 			allowNull: false, // No nulleable.
 			autoIncrement: true
