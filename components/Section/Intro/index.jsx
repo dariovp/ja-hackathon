@@ -11,7 +11,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState('');
+	const [regSwitch, setregSwitch] = useState(1);
 
 	// useEffect(() => {
 	//     axios.post("http://localhost:3000/api/mailchimp", {
@@ -33,13 +33,14 @@ export default function Intro(props) {
 			axios.post(`../../../api/user`, { email })
 			.then(response => {
 				console.log("RESPONSE DB", response);
+				setEmail("");
+				setregSwitch(2);
 			}).catch(response => {
 				console.log("ERROR DB", response)
 			})
 		}).catch(error => {
 			console.log("ERROR MAILCHIMP", error)
 		})
-		setEmail("");
 	}
 
 	return (
@@ -54,11 +55,21 @@ export default function Intro(props) {
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</p>
 						<div className={styles.registerStyle}>
-							<h1>Get Onboard</h1>
-							<div className={`form-group ${styles.registerInput}`}>
-								<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
-								<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
-							</div>
+							{regSwitch == 1 && <div>
+								<h1>Get Onboard</h1>
+								<div className={`form-group ${styles.registerInput}`}>
+									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
+								</div>
+							</div>}
+
+							{regSwitch == 2 && <div>
+								<h1>Bienvenido 🚀</h1>
+								<div className={`form-group ${styles.registerInput}`}>
+									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
+								</div>
+							</div>}
 						</div>
 					</div>
 				</Col>

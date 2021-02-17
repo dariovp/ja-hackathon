@@ -1,5 +1,7 @@
 import styles from '../WhatIs.jsx/WhatIs.module.css'
 import Card from "../../Commons/card"
+import { motion } from "framer-motion"
+
 
 import { faChartLine, faCommentsDollar,faUser} from '@fortawesome/free-solid-svg-icons';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -9,6 +11,11 @@ export default function WhatIs () {
 	const cardText1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
 	const cardText2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
 	const cardText3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur"
+
+	const variants = {
+		hidden: { opacity: 0 },
+		visible: { opacity: 1 },
+	}
 
 	return (
 		<div className={styles.main}>
@@ -31,7 +38,6 @@ export default function WhatIs () {
 				</Row>
 			</Container>
 			{/* <motion.div initial="false" animate="visible" variants={variants} className = {styles.cardContainer}>
-				
 			</motion.div> */}
 		</div> 
 	)
