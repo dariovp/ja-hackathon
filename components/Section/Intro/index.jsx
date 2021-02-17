@@ -12,6 +12,8 @@ export default function Intro(props) {
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
 	const [regSwitch, setregSwitch] = useState(1);
+	const [user, setUser] = useState({});
+
 
 	// useEffect(() => {
 	//     axios.post("http://localhost:3000/api/mailchimp", {
@@ -36,6 +38,10 @@ export default function Intro(props) {
 				console.log("RESPONSE DB", response);
 				setEmail("");
 				setregSwitch(2);
+				setUser({
+					id: response["id"],
+					points: response["points"],
+				})
 			}).catch(response => {
 				console.log("ERROR DB", response)
 			})
@@ -69,14 +75,14 @@ export default function Intro(props) {
 								<h1>Bienvenido {}</h1>
 								<div >
 									<Row className={styles.registerRow}>
-										<div className={styles.referralCode}><p>Referal Link {}</p></div>
+										<div className={styles.referralCode}><p>Referal Link {user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
 										<Col>
-											<div className={styles.registerBox}>Referidos {}</div>
+											<div className={styles.registerBox}>Referidos</div>
 										</Col>
 										<Col>
-											<div className={styles.registerBox}>Coins {}</div>
+											<div className={styles.registerBox}>Coins {user.coins}</div>
 										</Col>
 									</Row>
 								</div>
