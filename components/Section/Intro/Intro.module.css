@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
 }
 
 .title {
@@ -37,7 +37,7 @@
 }
 
 .moonyTitle {
-  color: #8175f3ff;
+  color: #4e4ed4;
 }
 
 .registerInput{
@@ -51,26 +51,27 @@
 
 .icon{
   margin-right: 3rem;
-  color:#8175f3ff
+  color:#4e4ed4;
 }
 
 .subtitle{
   font-size: 1rem
 }
 
-.inputButton{
+.inputButton, .inputButtony:hover {
   width: 6rem;
   height: 2.5rem;
   margin-left: 1rem;
-  background-color: #8175f3ff;
+  background-color: #4e4ed4 !important;
+  border-color: #4e4ed4 !important;
 }
 
 .inputButton:hover{
-  background-color:#8175f3ff ;
+  background-color:#4e4ed4 ;
 }
 
 .timebox{
-  border: 0.2rem solid  #8175f3ff;
+  border: 0.2rem solid  #4e4ed4;
   font-size: 1.75rem;
   width:3.125rem;
   height: 3.125rem;
@@ -90,7 +91,7 @@
 
 .dateInfo{
 font-size: 0.8rem;
-color: #8175f3ff;
+color: #4e4ed4;
 font-weight: bold;
 }
 
@@ -103,7 +104,7 @@ font-weight: bold;
   width: 100%;
   max-width: 22.5rem;
   padding: 1rem;
-  color:#8175f3ff;
+  color:#4e4ed4;
   box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;
 }
 

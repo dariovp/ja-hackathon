@@ -34,10 +34,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1rem;
 }
 
 .mailIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
 }
 
 .mailText {
@@ -49,8 +52,7 @@
 }
 
 .socialMediaIcons{
-    font-size: 2rem;
-    margin: 0.2rem;
+    font-size: 1.5rem;
 }
   
 .icon{
@@ -67,6 +69,7 @@
 
 .rights {
     font-size: 1rem;
+    padding: 0.5rem;
     margin: 0;
     color: white;
 }
@@ -74,4 +77,8 @@
 .moonyLogo {
     width: 3rem;
     height: 3rem;
+}
+
+.footerContainer {
+    height: 100vh;
 }

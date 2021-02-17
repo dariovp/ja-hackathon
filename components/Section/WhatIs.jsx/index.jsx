@@ -38,7 +38,6 @@ export default function WhatIs () {
 				</Row>
 			</Container>
 			{/* <motion.div initial="false" animate="visible" variants={variants} className = {styles.cardContainer}>
-				
 			</motion.div> */}
 		</div> 
 	)
