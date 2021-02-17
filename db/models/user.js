@@ -28,6 +28,11 @@ const User = sequelize.define(
 			defaultValue: 0,
 			allowNull: false,
 		},
+		ref: {
+			type: Sequelize.INTEGER,
+			defaultValue: 0,
+			allowNull: false,
+		},
 		verified: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,

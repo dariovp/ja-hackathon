@@ -11,16 +11,15 @@ export default async (req, res) => {
 
 		//console.log(req.body)
 
-		await db.sync({ force: false })
+		await db.sync({ force: true })
 		console.log("All models were synchronized successfully!")
 
-		console.log("asdasd", req.body)
+		//console.log("asdasd", req.body)
 
 
 		if (all) {
 
 			let test = await db.User.findAll();
-
 			return res.send(test)
 
 		}
@@ -48,19 +47,8 @@ export default async (req, res) => {
 
 		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
-			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
-			const api_key = "zIklHJiMtCua9cP3PpJU7g";
-
-			const mailData = {
-				from: 'Hernan <hernanhernan559@gmail.com>',
-				to: req.body.email,
-				subject: 'Hello',
-				html: '<form><input type="button" value="HOLA"></input></form>'
-			};
-
-
 			// check if email is in database
-			const maybeuser = await db.User.findOne({
+			let maybeuser = await db.User.findOne({
 				where: {
 					email: req.body.email,
 				}
@@ -79,7 +67,7 @@ export default async (req, res) => {
 				})
 				.then(data => {
 
-					// Then, send mail to user in order to verify email
+					// Then, send mail to user in order to verify 
 					user = data.dataValues;
 					console.log(data.dataValues)
 
