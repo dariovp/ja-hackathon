@@ -90,7 +90,7 @@ export default function Intro(props) {
 											<div className={styles.registerBox}>Referidos {user.ref} </div>
 										</Col>
 										<Col>
-											<div className={styles.registerBox}>Coins {user.coins}</div>
+											<div className={styles.registerBox}>Coins {user.points}</div>
 										</Col>
 									</Row>
 								</div>
