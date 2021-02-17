@@ -12,8 +12,8 @@ app.prepare().then(() => {
 
 	server.all('*', (req, res) => {
 		if (req.headers['x-forwarded-proto']!='https') {
-			console.log("no tiene http")
-			res.redirect('https://moonyapp.site' + req.url)
+			console.log("no tiene https")
+			res.redirect('https://www.moonyapp.site' + req.url)
 		} else {
 			return handle(req, res);
 		}
