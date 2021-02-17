@@ -48,7 +48,7 @@
 }
 
 .registerInput{
-  width: 20rem;
+  width: 100%;
   height: auto;
   display: flex;
   margin-top: rem;

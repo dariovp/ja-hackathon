@@ -9,15 +9,18 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
 	const server = express();
-
+	
 	server.all('*', (req, res) => {
-		if (req.headers['x-forwarded-proto']!='https') {
-			console.log("no tiene https")
-			res.redirect('https://www.moonyapp.site' + req.url)
-		} else {
-			return handle(req, res);
+		console.log("dev: ", dev)
+		if (!dev) {
+			if (req.headers['x-forwarded-proto']!='https') {
+				console.log("no tiene https")
+				res.redirect('https://www.moonyapp.site' + req.url)
+			} else {
+				return handle(req, res);
+			}
 		}
-		
+		return handle(req, res);
 	})
 
 
