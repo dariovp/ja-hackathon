@@ -63,7 +63,7 @@ export default async (req, res) => {
 				// Else, create user with that mail
 				await db.User.create({
 					email: req.body.email,
-					firstName: req.body.firstName,
+					firstName: req.body.name,
 				})
 				.then(data => {
 					// Then, send mail to user in order to verify 

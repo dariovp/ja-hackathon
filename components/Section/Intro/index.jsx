@@ -39,13 +39,14 @@ export default function Intro(props) {
 			console.log("RESPONSE MAILCHIMP", response)
 			axios.post(`../../../api/user`, { email, name, rc })
 			.then(response => {
-				console.log("RESPONSE DB", response);
+				console.log("RESPONSE DB", response["data"]);
 				setEmail("");
 				setregSwitch(2);
 				setUser({
-					id: response["id"],
-					name: response["firstName"],
-					points: response["points"],
+					id: response["data"]["id"],
+					name: response["data"]["firstName"],
+					points: response["data"]["points"],
+					ref: response["data"]["ref"],
 				})
 			}).catch(response => {
 				console.log("ERROR DB", response)
@@ -64,7 +65,9 @@ export default function Intro(props) {
 							Welcome to <label className={styles.moonyTitle}>Moony</label>
 						</h1>
 						<p className={`${styles.subtitle}`}>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Somos tu red social de inversiones. 
+							Estás empezando? Seguí y aprendé de los que saben.
+							Sos experto? Generá rendimientos compartiendo tus inversiones y experiencias.
 						</p>
 						<div className={styles.registerStyle}>
 							{regSwitch == 1 && <div>
@@ -77,17 +80,17 @@ export default function Intro(props) {
 							</div>}
 
 							{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
-								<h1>Bienvenido {}</h1>
+								<h1>Bienvenido {user.name}</h1>
 								<div >
 									<Row className={styles.registerRow}>
-										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/ +{user.id}</p></div>
+										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/?rc={user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
 										<Col>
 											<div className={styles.registerBox}>Referidos {user.ref} </div>
 										</Col>
 										<Col>
-											<div className={styles.registerBox}>Coins {user.coins}</div>
+											<div className={styles.registerBox}>Coins {user.points}</div>
 										</Col>
 									</Row>
 								</div>
