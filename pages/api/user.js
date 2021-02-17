@@ -33,7 +33,8 @@ export default async (req, res) => {
 			});
 
 			user.points+=5; // calcs need to be done
-			await user.save({ fields: ['points'] });
+			user.ref+=1;
+			await user.save({ fields: ['points','ref']});
 		}
 
 
@@ -42,7 +43,9 @@ export default async (req, res) => {
 		/*if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
-		let email = req.body.email
+		let email = req.body.email;
+		let name = req.body.firstName;
+
 		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
 			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
@@ -72,6 +75,7 @@ export default async (req, res) => {
 				// Else, create user with that mail
 				await db.User.create({
 					email: req.body.email,
+					firstName: req.body.firstName,
 				})
 				.then(data => {
 
