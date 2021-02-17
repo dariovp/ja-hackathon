@@ -66,7 +66,7 @@ export default function Intro(props) {
 							</div>}
 
 							{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
-								<h1>Bienvenido 🚀</h1>
+								<h1>Bienvenido {}</h1>
 								<div >
 									<Row className={styles.registerRow}>
 										<div className={styles.referralCode}><p>Referal Link {}</p></div>
@@ -78,7 +78,7 @@ export default function Intro(props) {
 										<Col>
 											<div className={styles.registerBox}>Coins {}</div>
 										</Col>
-									</Row>
+									</Row>W
 								</div>
 							</div>}
 						</div>
