@@ -66,17 +66,10 @@ export default async (req, res) => {
 					firstName: req.body.firstName,
 				})
 				.then(data => {
-
 					// Then, send mail to user in order to verify 
 					user = data.dataValues;
 					console.log(data.dataValues)
-
-
 				});
-
-				
-
-
 
 				// Send email to validate account state
 

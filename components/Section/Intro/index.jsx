@@ -5,6 +5,8 @@ import Image from 'next/image';
 import smtpImage from "../../../public/smartphone3.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
+import { useRouter } from "next/router"
+
 
 export default function Intro(props) {
 	let duration = props.duration;
@@ -27,7 +29,7 @@ export default function Intro(props) {
 	// 	})
 	// },[]);
 
-	let ref = 
+	const { rc } = router.query;
 
 	function submitRegister(e) {
 		e.preventDefault();
