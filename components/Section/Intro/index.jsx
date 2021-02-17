@@ -34,6 +34,7 @@ export default function Intro(props) {
 			.then(response => {
 				console.log("RESPONSE DB", response);
 				setEmail("");
+				setregSwitch(2);
 			}).catch(response => {
 				console.log("ERROR DB", response)
 			})
