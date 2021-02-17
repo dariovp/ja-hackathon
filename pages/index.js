@@ -26,7 +26,6 @@ export default function Home() {
 		)
 		.then((response) => response.data)
 		.then((data) => {
-			console.log(data);
 			const now = moment.utc(data["datetime"], moment.ISO_8601);
 			const lanzamiento = moment.utc(
 				"2021-03-01T00:00:00.151826-03:00",
