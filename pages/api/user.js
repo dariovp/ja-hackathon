@@ -11,7 +11,7 @@ export default async (req, res) => {
 
 		//console.log(req.body)
 
-		await db.sync({ force: false })
+		await db.sync({ force: true })
 		console.log("All models were synchronized successfully!")
 
 		//console.log("asdasd", req.body)
@@ -66,17 +66,10 @@ export default async (req, res) => {
 					firstName: req.body.firstName,
 				})
 				.then(data => {
-
 					// Then, send mail to user in order to verify 
 					user = data.dataValues;
 					console.log(data.dataValues)
-
-
 				});
-
-				
-
-
 
 				// Send email to validate account state
 

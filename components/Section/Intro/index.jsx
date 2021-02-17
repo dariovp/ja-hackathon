@@ -5,6 +5,8 @@ import Image from 'next/image';
 import smtpImage from "../../../public/smartphone3.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
+import { useRouter } from "next/router"
+
 
 export default function Intro(props) {
 	let duration = props.duration;
@@ -14,6 +16,7 @@ export default function Intro(props) {
 	const [regSwitch, setregSwitch] = useState(1);
 	const [user, setUser] = useState({});
 
+	const router = useRouter();
 	const { rc } = router.query;
 
 	// useEffect(() => {
@@ -26,8 +29,6 @@ export default function Intro(props) {
 	// 		console.log(data)
 	// 	})
 	// },[]);
-
-	let ref = 
 
 	function submitRegister(e) {
 		e.preventDefault();
@@ -79,11 +80,11 @@ export default function Intro(props) {
 								<h1>Bienvenido {}</h1>
 								<div >
 									<Row className={styles.registerRow}>
-										<div className={styles.referralCode}><p>Referal Link {user.id}</p></div>
+										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/ +{user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
 										<Col>
-											<div className={styles.registerBox}>Referidos</div>
+											<div className={styles.registerBox}>Referidos {user.ref} </div>
 										</Col>
 										<Col>
 											<div className={styles.registerBox}>Coins {user.coins}</div>
