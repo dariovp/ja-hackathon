@@ -27,7 +27,7 @@ export default function WhatIs () {
 				</div>
 				<Row xl={3} lg={3} md={3} sm={1} xs={1}>
 					<Col className="d-flex justify-content-center align-items-center my-2">
-						<Card title = "Feature 1" description={cardText1} icon = {faChartLine} />
+						<Card  title = "Feature 1" description={cardText1} icon = {faChartLine} />
 					</Col>
 					<Col className="d-flex justify-content-center align-items-center my-2">
 						<Card title = "Feature 2" description={cardText2} icon = {faCommentsDollar}/>
