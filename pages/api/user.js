@@ -14,13 +14,12 @@ export default async (req, res) => {
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
 
-		console.log("asdasd", req.body)
+		//console.log("asdasd", req.body)
 
 
 		if (all) {
 
 			let test = await db.User.findAll();
-
 			return res.send(test)
 
 		}
@@ -33,7 +32,8 @@ export default async (req, res) => {
 			});
 
 			user.points+=5; // calcs need to be done
-			await user.save({ fields: ['points'] });
+			user.ref+=1;
+			await user.save({ fields: ['points','ref']});
 		}
 
 
@@ -42,22 +42,13 @@ export default async (req, res) => {
 		/*if(!req.body.email ){
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
-		let email = req.body.email
+		let email = req.body.email;
+		let name = req.body.firstName;
+
 		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
-			const DOMAIN = 'sandboxe11a6f67001b449f952d2fd83942a8cc.mailgun.org';
-			const api_key = "zIklHJiMtCua9cP3PpJU7g";
-
-			const mailData = {
-				from: 'Hernan <hernanhernan559@gmail.com>',
-				to: req.body.email,
-				subject: 'Hello',
-				html: '<form><input type="button" value="HOLA"></input></form>'
-			};
-
-
 			// check if email is in database
-			const maybeuser = await db.User.findOne({
+			let maybeuser = await db.User.findOne({
 				where: {
 					email: req.body.email,
 				}
@@ -72,10 +63,11 @@ export default async (req, res) => {
 				// Else, create user with that mail
 				await db.User.create({
 					email: req.body.email,
+					firstName: req.body.firstName,
 				})
 				.then(data => {
 
-					// Then, send mail to user in order to verify email
+					// Then, send mail to user in order to verify 
 					user = data.dataValues;
 					console.log(data.dataValues)
 

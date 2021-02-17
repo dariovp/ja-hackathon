@@ -14,6 +14,7 @@ export default function Intro(props) {
 	const [regSwitch, setregSwitch] = useState(1);
 	const [user, setUser] = useState({});
 
+	const { rc } = router.query;
 
 	// useEffect(() => {
 	//     axios.post("http://localhost:3000/api/mailchimp", {
@@ -26,6 +27,8 @@ export default function Intro(props) {
 	// 	})
 	// },[]);
 
+	let ref = 
+
 	function submitRegister(e) {
 		e.preventDefault();
 		axios.post("../../../api/mailchimp", {
@@ -33,13 +36,14 @@ export default function Intro(props) {
 			name,
 		}).then(response => {
 			console.log("RESPONSE MAILCHIMP", response)
-			axios.post(`../../../api/user`, { email, name })
+			axios.post(`../../../api/user`, { email, name, rc })
 			.then(response => {
 				console.log("RESPONSE DB", response);
 				setEmail("");
 				setregSwitch(2);
 				setUser({
 					id: response["id"],
+					name: response["firstName"],
 					points: response["points"],
 				})
 			}).catch(response => {
