@@ -3,19 +3,12 @@ import db from '../../db/models/index';
 export default async (req, res) => {
 	try {
 
-		// console.log(db)
-
 		const { rc, mentor, all, check } = req.query
 
 		let user;
 
-		//console.log(req.body)
-
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
-
-		//console.log("asdasd", req.body)
-
 
 		if (all) {
 
@@ -36,12 +29,6 @@ export default async (req, res) => {
 			await user.save({ fields: ['points','ref']});
 		}
 
-
-		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
-
-		/*if(!req.body.email ){
-			return res.status(422).send({error: 'Missing one or more fields'})
-		}*/
 		let email = req.body.email;
 		let name = req.body.firstName
 
@@ -74,6 +61,8 @@ export default async (req, res) => {
 
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
+
+
 				// Else, create user with that mail
 				await db.User.create({
 					email: req.body.email,
@@ -87,12 +76,10 @@ export default async (req, res) => {
 
 				// Send email to validate account state
 
-				// ....
-
 				res.status(200).json(user)
 			}
 
-		} else {
+		}/* else {
 			if (req.body.all) {
 
 				let test = await db.User.findAll()
@@ -106,7 +93,7 @@ export default async (req, res) => {
 
 
 			res.status(500).send({ message: "Invalid email format" });
-		}
+		}*/
 
 
 	} catch (error) {
