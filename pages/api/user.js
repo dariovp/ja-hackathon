@@ -3,6 +3,7 @@ import db from '../../db/models/index';
 export default async (req, res) => {
 	try {
 
+		console.log("aaaaaaaaaaaaaaaaaaaaaa", req.body)
 		const { rc, mentor, all } = req.query
 
 		let user;
