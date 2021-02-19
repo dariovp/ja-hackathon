@@ -88,7 +88,7 @@ export default function Intro(props) {
 								</div>}
 
 								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
-									<input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />}
+									<input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />
 									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
 								</div>}
 							</div>}
