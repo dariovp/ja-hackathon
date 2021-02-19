@@ -11,7 +11,6 @@ app.prepare().then(() => {
 	const server = express();
 	
 	server.all('*', (req, res) => {
-		console.log("dev: ", dev)
 		if (!dev) {
 			if (req.headers['x-forwarded-proto']!='https') {
 				console.log("no tiene https")

@@ -5,7 +5,7 @@ export default async (req, res) => {
 
 		// console.log(db)
 
-		const { rc, mentor, all } = req.query
+		const { rc, mentor, all, check } = req.query
 
 		let user;
 
@@ -43,7 +43,21 @@ export default async (req, res) => {
 			return res.status(422).send({error: 'Missing one or more fields'})
 		}*/
 		let email = req.body.email;
-		let name = req.body.firstName;
+		let name = req.body.firstName
+
+
+		if (req.query.check != undefined){
+			let emailCheck = await db.User.findOne({
+				where: {
+					email: req.body.email,
+				}
+			})
+
+			 res.status(200).send(emailCheck)
+		}else{
+			 res.status(204)
+
+		}
 
 		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
@@ -77,9 +91,6 @@ export default async (req, res) => {
 
 				res.status(200).json(user)
 			}
-
-
-
 
 		} else {
 			if (req.body.all) {
