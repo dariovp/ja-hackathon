@@ -41,11 +41,7 @@ export default async (req, res) => {
 					email: req.body.email,
 				}
 			})
-			.then(data => {
-				// Then, send mail to user in order to verify 
-				user = data.dataValues;
-				console.log(data.dataValues)
-			});
+
 			 res.status(200).send(emailCheck)
 		}else{
 			 res.status(204)

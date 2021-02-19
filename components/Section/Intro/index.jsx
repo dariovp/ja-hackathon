@@ -32,7 +32,7 @@ export default function Intro(props) {
 	function checkReg() {
 		axios.post(`../../../api/user`, {email}).then(response => {
 			if(response.status != 204){
-				setUser(response["data"]["dataValues"])
+				setUser(response["data"]) //["dataValues"]
 				setregSwitch(3)
 			} else {
 				setregSwitch(2)
