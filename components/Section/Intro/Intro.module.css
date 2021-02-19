@@ -50,10 +50,10 @@
 .registerInput{
   width: 100%;
   height: auto;
-  display: flex;
-  margin-top: rem;
-  justify-content: left;
+  display:flex;
+  justify-content: center;
   align-items: center;
+ 
 }
 
 .icon{
@@ -62,7 +62,8 @@
 }
 
 .subtitle{
-  font-size: 1rem
+  font-size: 10px;
+  text-align: center;
 }
 
 .inputButton, .inputButtony:hover {
@@ -105,6 +106,9 @@ font-weight: bold;
 }
 
 .registerStyle{
+  display: flex;
+  justify-content: left;
+  align-items: center;
   width: 100%;
   max-width: 22.5rem;
   padding: 1rem;
