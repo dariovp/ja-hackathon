@@ -9,7 +9,6 @@ import { useRouter } from "next/router"
 
 
 export default function Intro(props) {
-	let duration = props.duration;
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
@@ -31,7 +30,14 @@ export default function Intro(props) {
 	// },[]);
 
 	function checkReg() {
-		setregSwitch(3)
+		axios.post(`../../../api/user`, {email}).then(response => {
+			if(response.status != 204){
+				setUser(response["data"]["dataValues"])
+				setregSwitch(3)
+			} else {
+				setregSwitch(2)
+			}
+		})
 	}
 
 	function submitRegister(e) {
@@ -76,13 +82,18 @@ export default function Intro(props) {
 						<div className={styles.registerStyle}>
 							{regSwitch == 1 || regSwitch == 2 && <div>
 								<h1>Get Onboard</h1>
-								<div className={`form-group ${styles.registerInput}`}>
-									{regSwitch == 1 &&<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />}
-									{regSwitch == 2 && <input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />}
+								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
+									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Join</button>
+								</div>}
+
+								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
+									<input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />}
 									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
-								</div>
+								</div>}
 							</div>}
 
+							
 							{regSwitch == 3 && <div className={`form-group ${styles.registerInput}`}>
 								<h1>Bienvenido {user.name}</h1>
 								<div >
