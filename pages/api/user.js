@@ -3,7 +3,6 @@ import db from '../../db/models/index';
 export default async (req, res) => {
 	try {
 
-		console.log("aaaaaaaaaaaaaaaaaaaaaa", req.body.name)
 		const { rc, mentor, all } = req.query
 
 		let user;
@@ -34,7 +33,6 @@ export default async (req, res) => {
 
 
 		if (email && req.body.name==undefined  && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)){
-			console.log("paso el check")
 			
 			let emailCheck = await db.User.findOne({
 				where: {
@@ -49,7 +47,6 @@ export default async (req, res) => {
 
 		if (req.body.name != undefined && email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
-			console.log("entro en create ponele")
 
 			// check if email is in database
 			let maybeuser = await db.User.findOne({
