@@ -80,7 +80,7 @@ export default function Intro(props) {
 							Sos experto? Generá rendimientos compartiendo tus inversiones y experiencias.
 						</p>
 						<div className={styles.registerStyle}>
-							{regSwitch == 1 || regSwitch == 2 && <div>
+							{(regSwitch == 1 || regSwitch == 2) && <div>
 								<h1>Get Onboard</h1>
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
