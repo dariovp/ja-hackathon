@@ -49,7 +49,7 @@ export default async (req, res) => {
 
 			}else if(!emailCheck) {
 				console.log("elseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
-				res.sendStatus(204)
+				res.status(204).send()
 			}
 		}
 	
