@@ -3,7 +3,7 @@ import db from '../../db/models/index';
 export default async (req, res) => {
 	try {
 
-		const { rc, mentor, all, check } = req.query
+		const { rc, mentor, all } = req.query
 
 		let user;
 
@@ -33,20 +33,18 @@ export default async (req, res) => {
 		let name = req.body.firstName
 
 
-		if (req.query.check != undefined){
+		if (email && name == undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)){
 			let emailCheck = await db.User.findOne({
 				where: {
 					email: req.body.email,
 				}
 			})
-
 			 res.status(200).send(emailCheck)
 		}else{
 			 res.status(204)
-
 		}
 
-		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+		if (name != undefined && email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
 			// check if email is in database
 			let maybeuser = await db.User.findOne({
