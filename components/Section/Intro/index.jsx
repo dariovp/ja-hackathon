@@ -41,7 +41,7 @@ export default function Intro(props) {
 			.then(response => {
 				console.log("RESPONSE DB", response["data"]);
 				setEmail("");
-				setregSwitch(2);
+				setregSwitch(3);
 				setUser({
 					id: response["data"]["id"],
 					name: response["data"]["firstName"],
@@ -70,7 +70,7 @@ export default function Intro(props) {
 							Sos experto? Generá rendimientos compartiendo tus inversiones y experiencias.
 						</p>
 						<div className={styles.registerStyle}>
-							{regSwitch == 1 && <div>
+							{regSwitch == 1 || regSwitch == 2 && <div>
 								<h1>Get Onboard</h1>
 								<div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
@@ -79,7 +79,7 @@ export default function Intro(props) {
 								</div>
 							</div>}
 
-							{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
+							{regSwitch == 3 && <div className={`form-group ${styles.registerInput}`}>
 								<h1>Bienvenido {user.name}</h1>
 								<div >
 									<Row className={styles.registerRow}>
