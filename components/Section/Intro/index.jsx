@@ -81,7 +81,7 @@ export default function Intro(props) {
 						</p>
 						<div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>
-								<h1>Get Onboard</h1>
+								<h1>Get Onboard 🚀</h1>
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
 									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Join</button>
