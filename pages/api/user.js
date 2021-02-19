@@ -40,10 +40,16 @@ export default async (req, res) => {
 				}
 			})
 
-			 res.status(200).send(emailCheck)
-		}else{
-			 res.status(204)
+			
+			if (emailCheck){
+				res.status(200).send(emailCheck)
+
+			}else if(!emailCheck) {
+				res.status(204).send()
+			}
 		}
+	
+
 
 		if (req.body.name != undefined && email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
 
