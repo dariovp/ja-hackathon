@@ -103,7 +103,7 @@ export default function Intro(props) {
 							{(regSwitch == 1 || regSwitch == 2) && <div>
 
 								<h2 className={styles.regTitle}>Sumate <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
-								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y se parte del pre-release.</p>
+								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y sumate al pre-release.</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => setEmail(e.target.value)} />
