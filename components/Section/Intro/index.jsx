@@ -15,7 +15,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(1);
+	const [regSwitch, setregSwitch] = useState(0);
 	const [user, setUser] = useState({});
 	const [validEmail, setValidEmail] = useState(false);
 
@@ -96,10 +96,23 @@ export default function Intro(props) {
 		setValidEmail(re.test(String(email).toLowerCase()))
 	}
 
+	function registerButton(){
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+			setregSwitch(1);
+			window.scroll({
+				top: 318,
+				behavior: 'smooth'
+			  });
+		} else {
+			setregSwitch(1);
+		}
+	}
+
 	return (
 		<Container fluid className={`${styles.intro}`}>
 			<Row xl={4} lg={4} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center">
 				<Col xl={1}>
+					<img src={draw} className={styles.imgStyle2}></img>
 				</Col>
 				<Col xl={4} >
 					<div className={styles.description}>
@@ -110,7 +123,7 @@ export default function Intro(props) {
 							Somos tu red social de inversiones
 							¿Estás empezando? Seguí y aprendé de los que saben.
 						</p>
-						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => setregSwitch(1)}>Unite</button>}
+						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => registerButton() }>Unite</button>}
 
 						{regSwitch != 0 && <div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>

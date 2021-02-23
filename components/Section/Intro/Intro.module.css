@@ -12,22 +12,6 @@
   }
 }
 
-
-.title {
-  margin-bottom: 2rem;
-  line-height: 1.15;
-  font-size: 4rem;
-  justify-content: left;
-}
-
-.description {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: left;
-}
-
 .rocketSection {
   width: 40%;
   height: 25rem;
@@ -47,36 +31,10 @@
   color: #4e4ed4;
 }
 
-.registerInput{
-  width: 100%;
-  height: 2rem;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:1rem;
-  margin-top:3rem;
-  margin-bottom: 1rem;
-}
-
 .icon{
   margin-right: 3rem;
   color:#4e4ed4;
 }
-
-.subtitle{
-  font-size: 8px;
-  text-align: left;
-}
-
-.inputButton, .inputButtony:hover {
-  width: 8rem;
-  height: 3rem;
-  margin-left: 1rem;
-  background-color: #4e4ed4 !important;
-  border-color: #4e4ed4 !important;
-  font-size: 16px;
-}
-
 
 .timebox{
   border: 0.2rem solid  #4e4ed4;
@@ -108,15 +66,6 @@ font-weight: bold;
   margin-bottom: -5rem;
 }
 
-.registerStyle{
-  width: 27rem;
-  height: auto;
-  padding:1.5rem;  
-  box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
-  margin-top: 2rem;
-  border-radius: 25px;
-}
-
 @keyframes typewriter{
   from{width: 0;}
   to{width: 10em;}
@@ -137,17 +86,6 @@ font-weight: bold;
     animation: 
       typewriter 2s steps(44) 1s 1 normal both,
       blinkTextCursor 500ms steps(44) infinite normal;   
-}
-
-.title {
-  margin-bottom:2rem;
-  line-height: 1.15;
-  font-size: 3rem;
-  justify-content: left;
-}
-
-.subtitle{
-  font-size: 1.5rem;
 }
 
 /* .imgStyle{
@@ -189,16 +127,6 @@ font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.regButton{
-  margin-top: 3rem;
-  width: 12rem;
-  height: 3rem;
-  background-color: #4e4ed4; 
-  color: white;
-  border-radius: 25px;
-  font-size: 18px;
 }
 
 .regButton:hover{
@@ -249,6 +177,148 @@ font-weight: bold;
   font-weight: bold;
 }
 
-.imgStyle{
-  width: 45rem;
+@media (max-width:640px){
+
+.registerStyle{
+  width: 100%;
+  height: auto;
+  padding:1.5rem;  
+  box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
+  margin-bottom:7rem;
+  margin-top: 3rem;
+  border-radius: 25px;
+}
+
+.regButton{
+  margin-bottom: 3rem;
+  width: 12rem;
+  height: 3rem;
+  background-color: #4e4ed4; 
+  color: white;
+  border-radius: 25px;
+  font-size: 18px;
+}
+
+  .description {
+    margin-top: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    margin-bottom: 3rem;
+    line-height: 1.15;
+    font-size: 4rem;
+  }
+
+  .imgStyle{
+      display:none;
+  }
+  .imgStyle2{
+    margin-top: 1rem;
+    width: 20rem;
+  }
+
+  .subtitle{
+    text-align: center;
+    font-size: 1.5rem;
+
+  }
+
+  .registerInput{
+    width: 100%;
+    height: 2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:1rem;
+    margin-top:3rem;
+    margin-bottom: 1rem;
+  }
+
+  .inputButton, .inputButtony:hover {
+    width: 100%;
+    height: 3rem;
+    margin-top: 1rem;
+    background-color: #4e4ed4 !important;
+    border-color: #4e4ed4 !important;
+    font-size: 16px;
+    
+  }
+}
+
+@media (min-width:640px){
+
+  .registerStyle{
+    width: 100%;
+    height: auto;
+    padding:1.5rem;  
+    box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
+    margin-bottom:3rem;
+    margin-top: 1rem;
+    border-radius: 25px;
+  }
+  
+  .regButton{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    width: 12rem;
+    height: 3rem;
+    background-color: #4e4ed4; 
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+  .description {
+    margin-top: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .title {
+    margin-bottom: 2rem;
+    line-height: 1.15;
+    font-size: 4rem;
+    justify-content: left;
+  }
+
+  .imgStyle{
+    width: 45rem;
+    height: auto;
+    max-width: 100%;
+  }
+  .imgStyle2{
+    display:none;
+  }
+
+  .subtitle{
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .inputButton, .inputButtony:hover {
+    width: 8rem;
+    height: 3rem;
+    margin-left: 1rem;
+    background-color: #4e4ed4 !important;
+    border-color: #4e4ed4 !important;
+    font-size: 16px;
+  }
+
+  .registerInput{
+    width: 100%;
+    height: 2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:3rem;
+    margin-bottom: 1rem;
+  }
 }
