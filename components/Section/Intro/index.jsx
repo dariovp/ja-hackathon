@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from 'next/image';
 import draw from "../../../public/rocket.svg"
+import rotbtc from "../../../public/tenor.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
 import { useRouter } from "next/router"
@@ -82,9 +83,10 @@ export default function Intro(props) {
 
 						{regSwitch != 0 && <div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>
-								<h2>Sumate</h2>
+								<h2 className={styles.regTitle}>Sumate <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
+								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y se parte del pre-release.</p>
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
-									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
+									<input className={`form-control ${styles.inputForm}` } type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => setEmail(e.target.value)} />
 									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
 								</div>}
 
