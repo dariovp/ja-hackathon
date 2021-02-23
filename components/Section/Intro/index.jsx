@@ -55,7 +55,7 @@ export default function Intro(props) {
 					name: response["data"]["firstName"],
 					points: response["data"]["points"],
 					ref: response["data"]["ref"],
-				})
+				}) 
 				setregSwitch(3)
 			} else {
 				setregSwitch(2)
