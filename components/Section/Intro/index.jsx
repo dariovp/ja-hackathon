@@ -15,7 +15,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(2);
+	const [regSwitch, setregSwitch] = useState(0);
 	const [user, setUser] = useState({});
 
 	const router = useRouter();
