@@ -15,8 +15,9 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(0);
+	const [regSwitch, setregSwitch] = useState(1);
 	const [user, setUser] = useState({});
+	const [validEmail, setValidEmail] = useState(false);
 
 	const router = useRouter();
 	const { rc } = router.query;
@@ -35,16 +36,16 @@ export default function Intro(props) {
 	function copyText() {
 		/* Get the text field */
 		var copyText = document.getElementById("referralUrl");
-	  
+
 		/* Select the text field */
 		copyText.select();
 		copyText.setSelectionRange(0, 99999); /* For mobile devices */
-	  
+
 		/* Copy the text inside the text field */
 		document.execCommand("copy");
-	  
+
 		/* Alert the copied text */
-	  }
+	}
 
 	function checkReg() {
 		axios.post(`../../../api/user`, { email }).then(response => {
@@ -55,7 +56,7 @@ export default function Intro(props) {
 					name: response["data"]["firstName"],
 					points: response["data"]["points"],
 					ref: response["data"]["ref"],
-				}) 
+				})
 				setregSwitch(3)
 			} else {
 				setregSwitch(2)
@@ -89,6 +90,12 @@ export default function Intro(props) {
 		})
 	}
 
+	function inputEmail(value) {
+		setEmail(value);
+		const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		setValidEmail(re.test(String(email).toLowerCase()))
+	}
+
 	return (
 		<Container fluid className={`${styles.intro}`}>
 			<Row xl={4} lg={4} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center">
@@ -112,13 +119,13 @@ export default function Intro(props) {
 								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y sumate al pre-release.</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
-									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => setEmail(e.target.value)} />
-									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
+									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => inputEmail(e.target.value)} />
+									<button type="submit" disabled={!validEmail} className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
 								</div>}
 
 								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control ${styles.inputForm}`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Ingresa tu nombre" onInput={(e) => setName(e.target.value)} />
-									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Despegar</button>
+									<button type="submit" disabled={name.length < 2} className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Despegar</button>
 								</div>}
 							</div>}
 
@@ -140,18 +147,18 @@ export default function Intro(props) {
 										<Col className={styles.registerRow}>
 											<div className={styles.registerBox}>
 												<div><img src={networkIcon} width="50px"></img></div>
-												<div className = {styles.registerBoxCol}>
+												<div className={styles.registerBoxCol}>
 													<div className={styles.refTitle}>Referidos</div>
-													<div className={styles.refNum}>{user.ref}</div> 
+													<div className={styles.refNum}>{user.ref}</div>
 												</div>
 											</div>
 										</Col>
 										<Col className={styles.registerRow}>
 											<div className={styles.registerBox}>
 												<div><img src={rocketIcon} width="50px"></img></div>
-												<div className = {styles.registerBoxCol}>
+												<div className={styles.registerBoxCol}>
 													<div className={styles.refTitle}>Moony´s</div>
-													<div className={styles.refNum}>{user.points}</div> 
+													<div className={styles.refNum}>{user.points}</div>
 												</div>
 											</div>
 										</Col>
@@ -162,11 +169,7 @@ export default function Intro(props) {
 					</div>
 				</Col>
 				<Col xl={7} className={`d-flex align-items-end justify-content-center`}>
-					<Image
-						src={draw}
-						alt="Picture of the author"
-						width={700}
-						height={600} />
+					<img src={draw} className={styles.imgStyle}></img>
 				</Col>
 			</Row>
 		</Container>

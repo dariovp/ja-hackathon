@@ -150,18 +150,18 @@ font-weight: bold;
   font-size: 1.5rem;
 }
 
-.imgStyle{
+/* .imgStyle{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px;
+  padding: 10px;
   border-radius: 25px;
   transform:
     perspective(800px)
     rotateY(-25deg) scale(0.9)
     rotateX(15deg);
-  opacity: 1; */
-}
+  opacity: 1;
+} */
 
 .registerBox{
   height: 4rem;
@@ -247,4 +247,8 @@ font-weight: bold;
 .refName{
   color:#4e4ed4;
   font-weight: bold;
+}
+
+.imgStyle{
+  width: 45rem;
 }
