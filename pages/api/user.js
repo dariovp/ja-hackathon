@@ -40,12 +40,16 @@ export default async (req, res) => {
 				}
 			})
 
-			
+			console.log("emailcheck", emailCheck)
+
+
 			if (emailCheck){
+				console.log("ifffffffffffffffffffffffffffffffffff")
 				res.status(200).send(emailCheck)
 
 			}else if(!emailCheck) {
-				res.status(204).send()
+				console.log("elseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+				res.sendStatus(204)
 			}
 		}
 	
