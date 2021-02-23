@@ -49,7 +49,13 @@ export default function Intro(props) {
 	function checkReg() {
 		axios.post(`../../../api/user`, { email }).then(response => {
 			if (response.status != 204) {
-				setUser(response["data"]) //["dataValues"]
+				console.log("USER", response["data"])
+				setUser({
+					id: response["data"]["id"],
+					name: response["data"]["firstName"],
+					points: response["data"]["points"],
+					ref: response["data"]["ref"],
+				})
 				setregSwitch(3)
 			} else {
 				setregSwitch(2)
@@ -145,7 +151,7 @@ export default function Intro(props) {
 												<div><img src={rocketIcon} width="50px"></img></div>
 												<div className = {styles.registerBoxCol}>
 													<div className={styles.refTitle}>Moony´s</div>
-													<div className={styles.refNum}>{user.coins}</div> 
+													<div className={styles.refNum}>{user.points}</div> 
 												</div>
 											</div>
 										</Col>
