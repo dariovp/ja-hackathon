@@ -1,8 +1,6 @@
 import styles from "./Intro.module.css";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Image from 'next/image';
-import smtpImage from "../../../public/smartphone3.gif"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
 import { useRouter } from "next/router"
@@ -61,7 +59,7 @@ export default function Intro(props) {
 			<Row lg={2} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100 h-100">
 				<Col xl={4}>
 					<div className={styles.description}>
-						<h1 className={styles.title}>
+						<h1 className={`${styles.title} ${styles.delirio}`}>
 							Welcome to <label className={styles.moonyTitle}>Moony</label>
 						</h1>
 						<p className={`${styles.subtitle}`}>
@@ -99,12 +97,7 @@ export default function Intro(props) {
 					</div>
 				</Col>
 				<Col xl={4} className="d-flex align-items-center justify-content-center">
-					<Image
-						className={styles.imgStyle}
-						src={smtpImage}
-						alt="Picture of the author"
-						width={260}
-						height={520} />
+					
 				</Col>				
 			</Row>
 		</Container>

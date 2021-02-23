@@ -117,8 +117,13 @@ font-weight: bold;
 }
 
 @keyframes typewriter{
-  from{width: 0;}
-  to{width: 9em;}
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes typewriter2{
@@ -133,7 +138,6 @@ font-weight: bold;
 .delirio{
     width: 12em;
     border-right: 2px solid #4e4ed4;
-    font-size: 180%;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
