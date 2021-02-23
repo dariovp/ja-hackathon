@@ -3,19 +3,12 @@ import db from '../../db/models/index';
 export default async (req, res) => {
 	try {
 
-		// console.log(db)
-
 		const { rc, mentor, all } = req.query
 
 		let user;
 
-		//console.log(req.body)
-
 		await db.sync({ force: false })
 		console.log("All models were synchronized successfully!")
-
-		//console.log("asdasd", req.body)
-
 
 		if (all) {
 
@@ -36,16 +29,34 @@ export default async (req, res) => {
 			await user.save({ fields: ['points','ref']});
 		}
 
-
-		// res.status(200).send({name: "asdasd", email: "asdasdfsdsf"})
-
-		/*if(!req.body.email ){
-			return res.status(422).send({error: 'Missing one or more fields'})
-		}*/
 		let email = req.body.email;
-		let name = req.body.firstName;
 
-		if (email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+
+		if (email && req.body.name==undefined  && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)){
+			
+			let emailCheck = await db.User.findOne({
+				where: {
+					email: req.body.email,
+				}
+			})
+
+			console.log("emailcheck", emailCheck)
+
+
+			if (emailCheck){
+				console.log("ifffffffffffffffffffffffffffffffffff")
+				res.status(200).send(emailCheck)
+
+			}else if(!emailCheck) {
+				console.log("elseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+				res.sendStatus(204)
+			}
+		}
+	
+
+
+		if (req.body.name != undefined && email != undefined && email.match(/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/)) {
+
 
 			// check if email is in database
 			let maybeuser = await db.User.findOne({
@@ -60,6 +71,8 @@ export default async (req, res) => {
 
 				res.status(200).send(maybeuser) // senf obj or props? 
 			} else {
+
+
 				// Else, create user with that mail
 				await db.User.create({
 					email: req.body.email,
@@ -73,15 +86,10 @@ export default async (req, res) => {
 
 				// Send email to validate account state
 
-				// ....
-
 				res.status(200).json(user)
 			}
 
-
-
-
-		} else {
+		}/* else {
 			if (req.body.all) {
 
 				let test = await db.User.findAll()
@@ -95,7 +103,7 @@ export default async (req, res) => {
 
 
 			res.status(500).send({ message: "Invalid email format" });
-		}
+		}*/
 
 
 	} catch (error) {
