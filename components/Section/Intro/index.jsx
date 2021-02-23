@@ -2,7 +2,7 @@ import styles from "./Intro.module.css";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from 'next/image';
-import smtpImage from "../../../public/smartphone3.gif"
+import draw from "../../../public/rocket.svg"
 import mailchimp from "../../../pages/api/mailchimp"
 import axios from "axios";
 import { useRouter } from "next/router"
@@ -12,7 +12,7 @@ export default function Intro(props) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
 	const [open, setOpen] = useState(false);
-	const [regSwitch, setregSwitch] = useState(1);
+	const [regSwitch, setregSwitch] = useState(0);
 	const [user, setUser] = useState({});
 
 	const router = useRouter();
@@ -69,57 +69,57 @@ export default function Intro(props) {
 	return (
 		<Container fluid className={`${styles.intro}`}>
 			<Row lg={2} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100 h-100">
-				<Col xl={4}>
+				<Col xl={4} >
 					<div className={styles.description}>
-						<h1 className={styles.title}>
-							Welcome to <label className={styles.moonyTitle}>Moony</label>
+						<h1 className={styles.title, styles.delirio}>
+							Bienvenido a <label className={styles.moonyTitle}>Moony</label>
 						</h1>
-						<p className={`${styles.subtitle}`}>
+						<p className={styles.subtitle}>
 							Somos tu red social de inversiones. 
 							Estás empezando? Seguí y aprendé de los que saben.
-							Sos experto? Generá rendimientos compartiendo tus inversiones y experiencias.
 						</p>
-						<div className={styles.registerStyle}>
+						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick = {() => setregSwitch(1)}>Unite</button>}
+
+						{regSwitch != 0 && <div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>
-								<h1>Get Onboard 🚀</h1>
+								<h2>Sumate</h2>
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onInput={(e) => setEmail(e.target.value)} />
-									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Join</button>
+									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
 								</div>}
 
 								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control`} type="text" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name" onInput={(e) => setName(e.target.value)} />
-									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Join</button>
+									<button type="submit" className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Despegar</button>
 								</div>}
 							</div>}
 
 							
-							{regSwitch == 3 && <div className={`form-group ${styles.registerInput}`}>
+							{regSwitch == 3 && <div className={`form-group ${styles.registerStyle}`}>
 								<h1>Bienvenido {user.name}</h1>
 								<div >
 									<Row className={styles.registerRow}>
 										<div className={styles.referralCode}><p>Referal Link: https://www.moonyapp.site/?rc={user.id}</p></div>
 									</Row>
 									<Row className={styles.registerRow}>
-										<Col>
+										<Col className={styles.registerRow}>
 											<div className={styles.registerBox}>Referidos {user.ref} </div>
 										</Col>
-										<Col>
+										<Col className={styles.registerRow}>
 											<div className={styles.registerBox}>Coins {user.points}</div>
 										</Col>
 									</Row>
 								</div>
 							</div>}
-						</div>
+						</div>}
 					</div>
 				</Col>
-				<Col xl={4} className="d-flex align-items-center justify-content-center">
+				<Col xl={6} className={`d-flex align-items-center justify-content-center`}>
 					<Image
-						className={styles.imgStyle}
-						src={smtpImage}
+						src={draw}
 						alt="Picture of the author"
-						width={260}
-						height={520} />
+						width={500}
+						height={600} />
 				</Col>				
 			</Row>
 		</Container>
