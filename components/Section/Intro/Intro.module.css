@@ -53,7 +53,9 @@
   display:flex;
   justify-content: center;
   align-items: center;
-  margin-top:2rem;
+  margin-top:1rem;
+  margin-top:3rem;
+  margin-bottom: 1rem;
 }
 
 .icon{
@@ -107,15 +109,11 @@ font-weight: bold;
 }
 
 .registerStyle{
-  display: flex;
-  justify-content: top;
-  align-items: center;
   width: 27rem;
   height: auto;
   padding:1.5rem;  
-  flex-direction: column;
-  box-shadow: rgba(78, 78, 212, 0.2) 0px 4px 12px;
-  margin-top: 3rem;
+  box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
+  margin-top: 2rem;
   border-radius: 25px;
 }
 
@@ -166,12 +164,20 @@ font-weight: bold;
 }
 
 .registerBox{
-  border: 1px solid black;
   height: 4rem;
-  width: 4rem;
+  width: 10rem;
   display: flex;
-  justify-content: center;
-  align-items: top;
+  justify-content: top;
+  align-items: left;
+}
+
+.registerBoxCol{
+  margin-left: 1rem;
+  margin-top: -0.5rem;
+  display: flex;
+  justify-content: top;
+  align-items: left;
+  flex-direction: column;
 }
 
 .referralCode{
@@ -201,6 +207,8 @@ font-weight: bold;
 
 .regTitle{
   color:#4e4ed4;
+  font-style: italic;
+  margin-bottom: 1rem;
 }
 
 .inputForm{
@@ -212,6 +220,31 @@ font-weight: bold;
   margin-bottom: 12px
 }
 
+.shareStyle{
+  background-color:#4e4ed4;
+  color:white;
+}
 
+.shareStyle:active {
+  box-shadow: rgba(78, 78, 212, 0.35) 0px 5px 15px;
+  transform: translateY(2px);
+}
 
+.refNum{
+  font-size: 25px;
+}
 
+.refTitle{
+  font-size: 20px;
+  color:#4e4ed4;
+  font-weight: bold;
+}
+
+.refHeader{
+  margin-bottom:2rem;
+}
+
+.refName{
+  color:#4e4ed4;
+  font-weight: bold;
+}
