@@ -1,6 +1,6 @@
 import styles from '../WhatIs.jsx/WhatIs.module.css'
 import Card from "../../Commons/card"
-import smtpImage from "../../../public/smartphone3.gif"
+imimport smtpImage from "../../../public/smartphone3.gif"
 
 import Image from 'next/image';
 import { motion } from "framer-motion"
@@ -44,9 +44,7 @@ export default function WhatIs () {
 						<Card description={cardText1} icon = {faChartLine} />
 						<Card description={cardText2} icon = {faCommentsDollar}/>
 						<Card description={cardText3} icon = {faUser}/>
-					</Col>
-				</Row>
-			</Container>
+r>
 			{/* <motion.div initial="false" animate="visible" variants={variants} className = {styles.cardContainer}>
 			</motion.div> */}
 		</div> 
