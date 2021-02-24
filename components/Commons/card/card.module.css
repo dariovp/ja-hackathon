@@ -1,29 +1,37 @@
 .main{
     width: 100%;
-    height: 20rem;
-    border-radius: 25px;
+    height: 12.5rem;
+    margin: 1rem;
     font-size: 1.2rem;
-    background-color: white;
     display:flex;
-    flex-direction: column;
+    background-color: transparent;
+
     justify-content: center;
     align-items: center;
- 
     text-align: center;
 }
 
 .icon{
-    font-size: 6rem;
-    color:#4e4ed4;
-    margin-bottom: 1rem;
+    font-size: 4rem;
+    color: #4e4ed4;
 }
 
-.textBox{
-    width:100%;
-    height: auto;
+.textBox {
+    width: 66%;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 1rem;
 }
 
-.description{
-    margin-top: 1rem;
-  }
-
+.leftDiv {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 33%;
+}
