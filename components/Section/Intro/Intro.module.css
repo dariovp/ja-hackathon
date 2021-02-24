@@ -219,7 +219,7 @@ border-radius: 25px;
 }
 .imgStyle2{
   margin-top: 1rem;
-  width: 20rem;
+  width: 100%;
 }
 
 .subtitle{
@@ -290,7 +290,7 @@ border-radius: 25px;
 }
 
 .imgStyle{
-  width: 45rem;
+  width: 100%;
   height: auto;
   max-width: 100%;
 }

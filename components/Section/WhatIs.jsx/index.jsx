@@ -11,10 +11,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 
 export default function WhatIs () {
-	const cardText1 = "Copiá los movimientos de los mejores inversores y ganá como ellos mientras aprendés en el camino"
+	const cardText1 = "Copiá los movimientos de los mejores inversores y ganá como ellos"
 	const cardText2 = "Descubrí y conectá con gente de la comunidad"
 	// Enterate cuáles son las opiniones y últimos hallazgos de los expertos en el mercado. 
-	const cardText3 = "Si sos trader, compartí y monetiza tus conocimientos y opiniones!"
+	const cardText3 = "Si sos trader, compartí y monetiza tus conocimientos!"
 
 	const variants = {
 		hidden: { opacity: 0 },
@@ -26,8 +26,8 @@ export default function WhatIs () {
 			
 			<Container fluid>
 				<div className={styles.missionStatement}>
-					<h1>Discover</h1>
-					<p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+					<h1>Descubrí</h1>
+					<p className={styles.description}>Conoce los beneficios de Moony</p>
 				</div>
 				<Row className="d-flex justify-content-center align-items-center">
 					<Col xl={6} lg={6} md={6}>

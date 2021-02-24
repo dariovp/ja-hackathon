@@ -110,8 +110,8 @@ export default function Intro(props) {
 
 	return (
 		<Container fluid className={`${styles.intro}`}>
-			<Row xl={4} lg={4} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center">
-				<Col xl={1}>
+			<Row xl={4} lg={4} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100">
+				<Col xl={1} className="d-flex justify-content-center align-items-center">
 					<img src={draw} className={styles.imgStyle2}></img>
 				</Col>
 				<Col xl={4} >
