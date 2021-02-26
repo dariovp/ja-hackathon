@@ -12,7 +12,6 @@ export default function NavBar() {
 			<Navbar.Brand className="text-light" href="#home">Moony</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav" />
-			<Button disabled variant="light">Launch</Button>
 		</StyledNavBar>
 	);
 }
