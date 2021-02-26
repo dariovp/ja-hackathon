@@ -119,9 +119,9 @@ export default function Intro(props) {
 						<p className={`${styles.title} ${styles.delirio}`}>
 							Bienvenido a <label className={styles.moonyTitle}>Moony</label>
 						</p>
-						<h2 className={styles.subtitle}>
+						<p className={styles.subtitle}>
 							Somos tu red social de <label className={styles.moonyTitle}>inversiones</label>
-						</h2>
+						</p>
 						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => registerButton() }>Unite</button>}
 
 						{regSwitch != 0 && <div className={styles.registerStyle}>
@@ -131,8 +131,8 @@ export default function Intro(props) {
 								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y sumate al pre-release.</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
-									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => inputEmail(e.target.value)} />
-									<button type="submit" disabled={!validEmail} className={`btn btn-primary ${styles.inputButton}`} onInput={(e) => checkReg(e)}>Siguiente</button>
+									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onChange={(e) => inputEmail(e.target.value)} />
+									<button type="submit" disabled={!validEmail} className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
 								</div>}
 
 								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
