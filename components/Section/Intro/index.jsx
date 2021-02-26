@@ -92,7 +92,7 @@ export default function Intro(props) {
 
 	function inputEmail(value) {
 		setEmail(value);
-		const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const re = /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
 		setValidEmail(re.test(String(email).toLowerCase()))
 	}
 
@@ -116,24 +116,23 @@ export default function Intro(props) {
 				</Col>
 				<Col xl={4} >
 					<div className={styles.description}>
-						<h1 className={styles.title, styles.delirio}>
+						<p className={`${styles.title} ${styles.delirio}`}>
 							Bienvenido a <label className={styles.moonyTitle}>Moony</label>
-						</h1>
-						<p className={styles.subtitle}>
-							Somos tu red social de inversiones
-							¿Estás empezando? Seguí y aprendé de los que saben.
 						</p>
+						<h2 className={styles.subtitle}>
+							Somos tu red social de <label className={styles.moonyTitle}>inversiones</label>
+						</h2>
 						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => registerButton() }>Unite</button>}
 
 						{regSwitch != 0 && <div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>
 
-								<h2 className={styles.regTitle}>Sumate <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
+								<h2 className={styles.regTitle}>Proximamente... <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
 								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y sumate al pre-release.</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onInput={(e) => inputEmail(e.target.value)} />
-									<button type="submit" disabled={!validEmail} className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => checkReg(e)}>Siguiente</button>
+									<button type="submit" disabled={!validEmail} className={`btn btn-primary ${styles.inputButton}`} onInput={(e) => checkReg(e)}>Siguiente</button>
 								</div>}
 
 								{regSwitch == 2 && <div className={`form-group ${styles.registerInput}`}>
