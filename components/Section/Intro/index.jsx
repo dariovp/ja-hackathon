@@ -108,6 +108,15 @@ export default function Intro(props) {
 		}
 	}
 
+	function hideText() {
+		var x = document.getElementById("questionText");
+		if (x.style.display === "none") {
+		  x.style.display = "block";
+		} else {
+		  x.style.display = "none";
+		}
+	}
+
 	return (
 		<Container fluid className={`${styles.intro}`}>
 			<Row xl={4} lg={4} md={2} sm={2} xs={1} className="py-2 justify-content-md-center align-items-md-center w-100">
@@ -122,13 +131,20 @@ export default function Intro(props) {
 						<p className={styles.subtitle}>
 							Somos tu red social de <label className={styles.moonyTitle}>inversiones</label>
 						</p>
-						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => registerButton() }>Unite</button>}
+						<div className={styles.questionsText} id="questionText">
+							<label className={styles.questions}>¿Estas empezando?</label> 
+							<p> Seguí y aprende de los que saben.</p>
+							
+							<label className={styles.questions}>¿Sos experto?</label>
+							<p>Genera rendimientos compartiendo tus inversiones y experiencias.</p>
+						</div>
+						{regSwitch == 0 && <button type="button" className={`btn btn-primary ${styles.regButton}`} onClick={() => registerButton() & hideText() }>Unite</button>}
 
 						{regSwitch != 0 && <div className={styles.registerStyle}>
 							{(regSwitch == 1 || regSwitch == 2) && <div>
 
 								<h2 className={styles.regTitle}>Proximamente... <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
-								<p>Queremos que seas parte de la experiencia Moony, dejanos tus datos y sumate al pre-release.</p>
+								<p className={styles.regText}>Dejanos tus datos y revisa tu mail para sumarte al pre-release (acordate de chequear spam o promosiones!)</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onChange={(e) => inputEmail(e.target.value)} />

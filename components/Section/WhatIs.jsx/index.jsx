@@ -40,11 +40,10 @@ export default function WhatIs () {
 								height={520} />
 						</div>
 					</Col>
-					<Col xl={6} lg={6} md={6} className="d-flex justify-content-center align-items-center flex-column my-2">
-						<Card description={cardText1} icon = {faChartLine} />
+					<Col xl={6} lg={6} md={6} className={`d-flex justify-content-center align-items-center flex-column my-2`}>
+						<Card description={cardText1} icon = {faChartLine}/>
 						<Card description={cardText2} icon = {faCommentsDollar}/>
 						<Card description={cardText3} icon = {faUser}/>
-
 					</Col>
 				</Row>
 			</Container>

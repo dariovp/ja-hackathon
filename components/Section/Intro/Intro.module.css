@@ -177,19 +177,20 @@ color:#4e4ed4;
 font-weight: bold;
 }
 
-@media (max-width:640px){
+@media (max-width:640px) {
 
   .registerStyle{
   width: 100%;
   height: auto;
   padding:1.5rem;  
   box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
-  margin-bottom:7rem;
+  margin-bottom:4rem;
   margin-top: 3rem;
   border-radius: 25px;
   }
 
   .regButton{
+    margin-top: 2rem;
     margin-bottom: 3rem;
     width: 12rem;
     height: 3rem;
@@ -209,9 +210,21 @@ font-weight: bold;
   }
 
   .title {
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
     line-height: 1.15;
     font-size: xx-large;
+  }
+
+  .delirio{
+    width: 12em;
+    border-right: 2px solid #4e4ed4;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%); 
+    animation: 
+      typewriter 2s steps(44) 1s 1 normal both,
+      blinkTextCursor 500ms steps(44) infinite normal;   
   }
 
   .imgStyle{
@@ -223,10 +236,34 @@ font-weight: bold;
   }
 
   .subtitle{
+    margin-top: -0.6rem;
     text-align: center;
     font-size: 1.5rem;
-    margin-top: 2rem;
   }
+
+  .questionsText{
+    width: 90%;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 0.8rem;
+  }
+  
+  .questions{
+    font-size: 1.4rem;
+    padding-top: 2rem;
+    color: #4e4ed4;
+    font-weight:500;
+  }
+
+  @media (orientation: landscape)
+   {
+    .questionsText{
+      width: 65%;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+   }
 
   .registerInput{
     width: 100%;
@@ -251,73 +288,193 @@ font-weight: bold;
   }
 }
 
-@media (min-width:640px){
+@media (min-width:640px) and (max-width:999px){
 
-.registerStyle{
-  width: 100%;
-  height: auto;
-  padding:1.5rem;  
-  box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
-  margin-bottom:3rem;
-  margin-top: 1rem;
-  border-radius: 25px;
+  .registerStyle{
+    width: 105%;
+    height: 80%;
+    padding: 0.5rem;  
+    box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
+    border-radius: 25px;
+  }
+  
+  .regTitle{
+    color:#4e4ed4;
+    margin: 0;
+    font-style: italic;
+    font-size: 1.6rem;
+  }
+
+  .regText{
+    margin-top: -0.5rem;
+  }
+
+  .inputForm{
+    margin-bottom: 0.5rem;
+  }
+
+  .inputButton, .inputButtony:hover {
+    width: 80%;
+    height: 3rem;
+    margin-top: 1rem;
+    padding: 0.2rem;
+    background-color: #4e4ed4 !important;
+    border-color: #4e4ed4 !important;
+    font-size: 16px;
+  }
+
+
+
+  .registerInput{
+    width: 100%;
+    height: 2rem;
+    padding-top: 2.5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .regButton{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width: 8rem;
+    height: 2.5rem;
+    background-color: #4e4ed4; 
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+
+  .description {
+    height: 115%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 1.8rem;
+  }
+
+  .delirio{
+    text-align: center;   
+  }
+
+  .imgStyle{
+      display:none;
+  }
+  .imgStyle2{
+    height: 90%;
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .subtitle{
+    margin-top: -1rem;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .questionsText{
+    width: 90%;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .questions{
+    font-size: 1.rem;
+    padding-top: 0.5rem;
+    color: #4e4ed4;
+    font-weight:500;
+  }
 }
 
-.regButton{
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  width: 12rem;
-  height: 3rem;
-  background-color: #4e4ed4; 
-  color: white;
-  border-radius: 25px;
-  font-size: 18px;
-}
-.description {
-  margin-top: 2rem;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: left;
-}
+@media (min-width: 1000px){
 
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
-  justify-content: left;
-}
+  .registerStyle{
+    width: 85%;
+    height: auto;
+    padding:1.5rem;  
+    box-shadow: rgba(78, 78, 212, 0.3) 0px 9px 12px;
+    margin-bottom:3rem;
+    margin-top: 5.8rem;
+    border-radius: 25px;
+  }
 
-.imgStyle{
-  width: 80%;
-  height: auto;
-  max-width: 100%;
-}
-.imgStyle2{
-  display:none;
-}
-
-.subtitle{
-  font-size: 2rem;
-  text-align: left;
-}
-
-.inputButton, .inputButtony:hover {
-  width: 8rem;
-  height: 3rem;
-  margin-left: 1rem;
-  background-color: #4e4ed4 !important;
-  border-color: #4e4ed4 !important;
-  font-size: 16px;
-}
-
-.registerInput{
-  width: 100%;
-  height: 2rem;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:3rem;
-  margin-bottom: 1rem;
-}
+  .regButton{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    width: 12rem;
+    height: 3rem;
+    background-color: #4e4ed4; 
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+  .description {
+    margin-top: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .title {
+    line-height: 1.15;
+    font-size: 4rem;
+    justify-content: left;
+  }
+  
+  .imgStyle{
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+  }
+  .imgStyle2{
+    display:none;
+  }
+  
+  .subtitle{
+    font-size: 2rem;
+    text-align: left;
+    margin-top: -3rem;
+  }
+  
+  .questionsText{
+    width: 65%;
+    font-size: 1.4rem;
+    text-align: left;
+    margin-top: 1rem;
+  }
+  
+  .questions{
+    font-size: 2rem;
+    padding-top: 2rem;
+    color: #4e4ed4;
+    font-weight:500;
+  }
+  
+  .inputButton, .inputButtony:hover {
+    width: 8rem;
+    height: 3rem;
+    margin-left: 1rem;
+    background-color: #4e4ed4 !important;
+    border-color: #4e4ed4 !important;
+    font-size: 16px;
+  }
+  
+  .registerInput{
+    width: 100%;
+    height: 2rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:3rem;
+    margin-bottom: 1rem;
+  }
 }
