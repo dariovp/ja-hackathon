@@ -144,7 +144,7 @@ export default function Intro(props) {
 							{(regSwitch == 1 || regSwitch == 2) && <div>
 
 								<h2 className={styles.regTitle}>Proximamente... <img className={styles.rotbtc} src={rotbtc} width="40px"></img></h2>
-								<p className={styles.regText}>Dejanos tus datos y revisa tu mail para sumarte al pre-release (acordate de chequear spam o promosiones!)</p>
+								<p className={styles.regText}>Dejanos tus datos y revisa tu mail para sumarte al pre-release (acordate de chequear spam o promociones!)</p>
 
 								{regSwitch == 1 && <div className={`form-group ${styles.registerInput}`}>
 									<input className={`form-control ${styles.inputForm}`} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa tu email" onChange={(e) => inputEmail(e.target.value)} />
@@ -156,7 +156,6 @@ export default function Intro(props) {
 									<button type="submit" disabled={name.length < 2} className={`btn btn-primary ${styles.inputButton}`} onClick={(e) => submitRegister(e)}>Despegar</button>
 								</div>}
 							</div>}
-
 							{regSwitch == 3 && <div>
 								<div className={styles.refHeader}>
 									<h2>Hola <label className={styles.refName}>{user.name}</label></h2>
