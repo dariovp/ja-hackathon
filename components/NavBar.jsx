@@ -8,7 +8,7 @@ export default function NavBar() {
 
 	return (
 		<StyledNavBar>
-			<Navbar.Brand className="text-light" href="#home">Snoot</Navbar.Brand>
+			<Navbar.Brand className="text-light" href="#home">Ignite</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav" />
 			

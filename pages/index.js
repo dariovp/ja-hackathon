@@ -20,7 +20,7 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Snoot</title>
+				<title>Ignite</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<NavBar />
