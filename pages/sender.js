@@ -48,7 +48,7 @@ export default function Sender () {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Ignite</title>
+				<title>JA Hackathon</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<MainSection>
@@ -58,7 +58,7 @@ export default function Sender () {
 				</StyledAlias>
 				<StyledButton variant="success">
 					Enviar invitacion por Whatsapp
-				</StyledButton>{' '}
+				</StyledButton>
 			</MainSection>
 		</div>
 	);

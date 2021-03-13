@@ -4,10 +4,11 @@ import MainSection from "components/Login/MainSection";
 import LoginNav from "components/Login/NavBar";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Draw from "../public/Envelope.svg";
 import { useRouter } from "next/router";
 import { colors } from "styles/theme";
 import { Button } from "react-bootstrap";
+import { Chip } from "components/Chip";
+import Draw from "../public/Adjust.svg";
 
 
 export default function Skills () {
@@ -24,10 +25,10 @@ export default function Skills () {
 
 	const StyledText = styled.div`
 		text-align: center;
-		font-size: 1.8rem;
+		font-size: 1.4rem;
 		color: black;
 		font-family: 'Open Sans', sans-serif;
-		margin: 2rem;
+		margin: 1rem;
 	`;
 
 	const StyledInput = styled(TextField)`
@@ -45,21 +46,36 @@ export default function Skills () {
 		max-width: 85%;
 	`;
 
+	const StyledList = styled.div`
+		display: flex;
+		flex-wrap: wrap;
+		width: 80%;
+	`;
+
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Ignite</title>
+				<title>JA Hackathon</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<MainSection>
 				<StyledImg src={Draw} />
 				<StyledAlias>
 					Bienvenido {name}! 
-					Queremos conocerte mejor
 				</StyledAlias>
+				<StyledText>
+					¿Cuáles son tus intereses?
+				</StyledText>
+				<StyledList>
+					<Chip>Programacion</Chip>
+					<Chip>Cripto</Chip>
+					<Chip>Emprendedurismo</Chip>
+					<Chip>Finanzas</Chip>
+				</StyledList>
 				<StyledButton variant="success">
-					Enviar invitacion por Whatsapp
-				</StyledButton>{' '}
+					Aceptar
+				</StyledButton>
+
 			</MainSection>
 		</div>
 	);

@@ -48,7 +48,7 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Ignite</title>
+				<title>JA Hackathon</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<LoginNav />
