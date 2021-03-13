@@ -10,7 +10,7 @@ import { colors } from "styles/theme";
 import { Button } from "react-bootstrap";
 
 
-export default function Sender () {
+export default function Skills () {
 
 	const { query: { name } } = useRouter();
 
@@ -54,7 +54,8 @@ export default function Sender () {
 			<MainSection>
 				<StyledImg src={Draw} />
 				<StyledAlias>
-					Hola {name}! 
+					Bienvenido {name}! 
+					Queremos conocerte mejor
 				</StyledAlias>
 				<StyledButton variant="success">
 					Enviar invitacion por Whatsapp

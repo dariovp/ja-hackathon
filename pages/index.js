@@ -57,6 +57,7 @@ export default function Home() {
 				<StyledAlias>
 					Ingresa tu Alias
 				</StyledAlias>
+				
 				<StyledInput id="standard-basic" label="Nombre" onChange={(e) => { setName(e.target.value) }} />
 				<StyledButton variant="success" onClick={() => {router.push(`/sender?name=${name}`)}} >Aceptar</StyledButton>{' '}
 			</MainSection>

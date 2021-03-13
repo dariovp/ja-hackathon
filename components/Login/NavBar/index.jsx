@@ -9,12 +9,13 @@ const Nav = styled.div`
 	padding: 0rem 1rem;
 	align-items: center;
 	background-color: ${colors.primary};
+	font-family: 'Times New Roman', Times, serif
 `;
 
 export default function LoginNav () {	
 	return (
 		<Nav>
-			IGNITE
+			Junior Achievement
 		</Nav>
 	);
 }
