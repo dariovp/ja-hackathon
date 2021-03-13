@@ -20,20 +20,20 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<Head>
-				<title>Moony App</title>
+				<title>Snoot</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<NavBar />
 			<main className={styles.main}>
 				<Section className="container-fluid">
-					<Intro duration={duration} />
+					
 				</Section>
 				<Section>
-					<WhatIs />
+					
 				</Section>
 	
-					
-				<Footer />
+				{/* 					
+				<Footer /> */}
 			</main>
 		</div>
 	)

@@ -1,6 +1,6 @@
 import styles from '../WhatIs.jsx/WhatIs.module.css'
 import Card from "../../Commons/card";
-import smtpImage from "../../../public/smartphone3.gif"
+// import smtpImage from "../../../public/smartphone3.gif"
 
 import Image from 'next/image';
 import { motion } from "framer-motion"
@@ -32,12 +32,12 @@ export default function WhatIs () {
 				<Row className="d-flex justify-content-center align-items-center">
 					<Col xl={6} lg={6} md={6}>
 						<div className=" w-auto p-1 d-flex justify-content-center align-items-center">
-							<Image
+							{/* <Image
 								className={styles.imgStyle}
 								src={smtpImage}
 								alt="Picture of the author"
 								width={260}
-								height={520} />
+								height={520} /> */}
 						</div>
 					</Col>
 					<Col xl={6} lg={6} md={6} className={`d-flex justify-content-center align-items-center flex-column my-2`}>
